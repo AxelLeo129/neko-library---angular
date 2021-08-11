@@ -131,5 +131,8 @@
       }
     }
   },
-  "defaultProject": "neko-library"
+  "defaultProject": "neko-library",
+  "cli": {
+    "analytics": "459eb920-0348-48dd-b896-36762ac24ee3"
+  }
 }

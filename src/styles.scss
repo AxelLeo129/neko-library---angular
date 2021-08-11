@@ -2,6 +2,21 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+* {
+    margin: 0px;
+    padding: 0px;
+    list-style: none !important;
+    font-family: 'Ubuntu', sans-serif !important;
+}
+
+ul, ol {
+    padding: 0px;
+}
+
+a:visited a:link, a:focus, a:hover, a:active {
+    list-style: none !important;
+    text-decoration: none !important;
+}
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
