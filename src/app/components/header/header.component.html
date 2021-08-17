@@ -4,24 +4,9 @@
       <!-- Social -->
       <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12 social">
         <ul>
-          <li>
-            <a href="https://facebook.com/" target="_blank">
-              <fa-icon [icon]="faFacebook" class="social--network white--facebook"></fa-icon>
-            </a>
-          </li>
-          <li>
-            <a href="https://youtube.com/" target="_blank">
-              <fa-icon [icon]="faYoutube" class="social--network white--youtube"></fa-icon>
-            </a>
-          </li>
-          <li>
-            <a href="https://twitter.com/" target="_blank">
-              <fa-icon [icon]="faTwitter" class="social--network white--twitter"></fa-icon>
-            </a>
-          </li>
-          <li>
-            <a href="https://instagram.com/" target="_blank">
-              <fa-icon [icon]="faInstagram" class="social--network white--instagram"></fa-icon>
+          <li *ngFor="let red_social of redes_sociales">
+            <a [href]="red_social.url" target="_blank">
+              <fa-icon [icon]="brandIcons[red_social.red]" class="social--network" [ngClass]="red_social.estilo"></fa-icon>
             </a>
           </li>
         </ul>
