@@ -1,17 +1,3 @@
-// General header
-.top--banner {
-    background-color: black;
-}
-
-.top--banner a {
-    color: white;
-}
-
-.back--color, .back--color a {
-    background: #47bac1;
-    color: white;
-}
-
 //Redes sociales
 .social--network {
     width: 30px;
@@ -151,6 +137,7 @@ header #categorias {
     display: block;
     margin-top: -10px;
     position: relative;
+    padding-bottom: 30px;
 }
 
 header #categorias h4 {
@@ -161,6 +148,14 @@ header #categorias h4 {
 
 header #categorias hr {
     border: 1px solid rgba(255, 255, 150 , .3);
+}
+
+.pixel--categories {
+    cursor: pointer;
+}
+
+.pixel-subcategories {
+    cursor: pointer;
 }
 
 /* Escritorio grande */

@@ -5,12 +5,11 @@ import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class TemplateService {
+export class GeneralService {
 
   constructor(private http: HttpClient) { }
 
-  get(): Promise<any> {
-    return this.http.get(environment.api_url + 'template').toPromise();
+  get(endpoint: string): Promise<any> {
+    return this.http.get(environment.api_url + endpoint).toPromise();
   }
-
 }
