@@ -1,0 +1,6 @@
+<ng-container *ngIf="categoria_subcategoria_encontrada == true; else not_found">
+    <p>Producto</p>
+</ng-container>
+<ng-template #not_found>
+    <app-not-found></app-not-found>
+</ng-template>

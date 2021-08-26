@@ -3,14 +3,17 @@ import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
-import { ProductoComponent } from 'src/app/components/producto/producto.component';
-import { NotFoundComponent } from 'src/app/components/not-found/not-found.component';
+import { SliderComponent } from 'src/app/components/slider/slider.component';
+import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
-  declarations: [HomeComponent, ProductoComponent, NotFoundComponent],
+  declarations: [HomeComponent, SliderComponent],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    NgbCarouselModule,
+    FontAwesomeModule
   ]
 })
 export class HomeModule { }

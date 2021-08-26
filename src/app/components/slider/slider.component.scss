@@ -1,0 +1,98 @@
+.carousel-control-prev {
+  left: -50px;
+}
+
+.carousel-control-next {
+  right: 0px;
+}
+
+.carousel-control-prev-icon {
+  background-color: #666;
+  height: 90px;
+  width: 30px;
+}
+
+.carousel-control-next-icon {
+    background-color: #666;
+    height: 90px;
+    width: 30px;
+}
+
+#slide {
+  position: relative;
+  margin: auto;
+  width: 100%;
+  overflow: hidden;
+  padding: 0;
+}
+
+#slide .slide--option--1 img {
+  position: absolute;
+  opacity: 1;
+}
+
+#slide .slide--option--1 .slide--text {
+  position: absolute;
+}
+
+#slide .slide--option--2 img {
+  position: absolute;
+  opacity: 1;
+  top: 5%;
+  left: 15%;
+  width: 30%;
+  height: 100%;
+}
+
+#slide .slide--option--2 .slide--text {
+  position: absolute;
+  text-align: right;
+  width: 40%;
+  top: 15%;
+  right: 15%;
+}
+
+#slide .slide--options h1 {
+  text-transform: uppercase;
+  font-size: 50px;
+  font-family: 'Ubuntu Condensed', sans-serif;
+  opacity: 1;
+  top: -10%;
+  color: #333;
+}
+
+#slide .slide--options h2 {
+  text-transform: uppercase;
+  font-size: 35px;
+  font-family: 'Ubuntu Condensed', sans-serif;
+  opacity: 1;
+  top: -10%;
+  color: #777;
+}
+
+#slide .slide--options h3 {
+  text-transform: uppercase;
+  font-size: 30px;
+  font-family: 'Ubuntu Condensed', sans-serif;
+  opacity: 1;
+  top: -10%;
+  color: #888;
+}
+
+#slide .slide--options button {
+  border: 0px;
+  margin-top: 10px;
+  padding: 10px;
+  opacity: 1;
+  top: -10%;
+}
+
+#slide .slide--options button:hover {
+  background: black;
+  color: white;
+  border: 0px;
+}
+
+#slide .slide--options button fa-icon {
+  margin-left: 10px;
+}

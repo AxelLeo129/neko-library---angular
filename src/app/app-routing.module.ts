@@ -1,17 +1,28 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {
+  NgModule
+} from '@angular/core';
+import {
+  Routes,
+  RouterModule
+} from '@angular/router';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 
 
-const routes: Routes = [
-  { 
-    path: '', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule) 
+const routes: Routes = [{
+    path: '',
+    loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule)
   },
-  { 
-    path: ':categoria', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule) 
+  {
+    path: ':categoria',
+    loadChildren: () => import('./pages/product/product.module').then(m => m.ProductModule)
   },
-  { 
-    path: ':categoria/:subcategoria', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule) 
+  {
+    path: ':categoria/:subcategoria',
+    loadChildren: () => import('./pages/product/product.module').then(m => m.ProductModule)
+  },
+  {
+    path: '**',
+    component: NotFoundComponent
   },
 ];
 
@@ -19,4 +30,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

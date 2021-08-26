@@ -1,0 +1,70 @@
+<div class="container-fluid" id="slide">
+  <div class="row">
+    <ngb-carousel *ngIf="images">
+      <ng-template ngbSlide>
+        <img [src]="imagen_fondo" alt="Random first slide">
+        <div class="slide--options slide--option--1">
+          <img class="product--img" style="top: 15%; right: 10%; width: 45%;" [src]="images[0]" alt="">
+          <div class="slide--text" style="top: 20%; left: 10%; width: 40%;">
+            <h1 style="color: #333">Lorem Ipsum</h1>
+            <h2 style="color: #777">Lorem ipsum dolor sit</h2>
+            <h3 style="color: #888">Lorem ipsum dolor sit</h3>
+            <a href="">
+              <button class="btn btn-info back--color text-uppercase">
+                VER PRODUCTO <fa-icon [icon]="faChevronRight"></fa-icon>
+              </button>
+            </a>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <img [src]="imagen_fondo" alt="Random first slide">
+        <div class="slide--options slide--option--2">
+          <img class="product--img" style="top: 5%; left: 15%; width: 25%;" [src]="images[1]" alt="">
+          <div class="slide--text" style="top: 20%; right: 10%; width: 40%;">
+            <h1 style="color: #333">Lorem Ipsum</h1>
+            <h2 style="color: #777">Lorem ipsum dolor sit</h2>
+            <h3 style="color: #888">Lorem ipsum dolor sit</h3>
+            <a href="">
+              <button class="btn btn-info back--color text-uppercase">
+                VER PRODUCTO <fa-icon [icon]="faChevronRight"></fa-icon>
+              </button>
+            </a>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <img [src]="imagen_fondo1" alt="Random first slide">
+        <div class="slide--options slide--option--2">
+          <img class="product--img" style="top: 5%; left: 15%; width: 25%;" [src]="images[2]" alt="">
+          <div class="slide--text" style="top: 20%; right: 10%; width: 40%;">
+            <h1 style="color: #fff">Lorem Ipsum</h1>
+            <h2 style="color: #eee">Lorem ipsum dolor sit</h2>
+            <h3 style="color: #eee">Lorem ipsum dolor sit</h3>
+            <a href="">
+              <button class="btn btn-info back--color text-uppercase">
+                VER PRODUCTO <fa-icon [icon]="faChevronRight"></fa-icon>
+              </button>
+            </a>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <img [src]="imagen_fondo2" alt="Random first slide">
+        <div class="slide--options slide--option--1">
+          <img class="product--img" style="top: 5%; right: 15%; width: 25%;" [src]="" alt="">
+          <div class="slide--text" style="top: 20%; left: 10%; width: 40%;">
+            <h1 style="color: #333">Lorem Ipsum</h1>
+            <h2 style="color: #777">Lorem ipsum dolor sit</h2>
+            <h3 style="color: #888">Lorem ipsum dolor sit</h3>
+            <a href="">
+              <button class="btn btn-info back--color text-uppercase">
+                VER PRODUCTO <fa-icon [icon]="faChevronRight"></fa-icon>
+              </button>
+            </a>
+          </div>
+        </div>
+      </ng-template>
+    </ngb-carousel>
+  </div>
+</div>
