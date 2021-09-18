@@ -1,6 +1,6 @@
 import {
   Component,
-  AfterViewInit
+  OnInit
 } from '@angular/core';
 
 @Component({
@@ -8,11 +8,11 @@ import {
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements AfterViewInit {
+export class HomeComponent implements OnInit {
 
   constructor() {}
 
-  ngAfterViewInit() {
+  ngOnInit(): void {
     
   }
 

@@ -1,6 +1,16 @@
-<ng-container *ngIf="categoria_subcategoria_encontrada == true; else not_found">
-    <p>Producto</p>
-</ng-container>
-<ng-template #not_found>
-    <app-not-found></app-not-found>
-</ng-template>
+<div style="position: relative; min-height: 25%;">
+    <ng-container *ngIf="cargando; else cargado">
+        <ngx-spinner bdColor="rgb(255,255,255)" size="medium" color="#47bac1" type="ball-spin-clockwise"
+            [fullScreen]="false">
+            <p style="color: #47bac1"> Cargando... </p>
+        </ngx-spinner>
+    </ng-container>
+    <ng-template #cargado>
+        <ng-container *ngIf="categoria_subcategoria_encontrada == true; else not_found">
+            <p>Producto</p>
+        </ng-container>
+        <ng-template #not_found>
+            <app-not-found></app-not-found>
+        </ng-template>
+    </ng-template>
+</div>

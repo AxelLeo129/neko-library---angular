@@ -64,11 +64,11 @@
 }
 
 //Cima
-#cima ul {
+#superiore ul {
     padding-top: 8px;
 }
 
-#cima ul li {
+#superiore ul li {
     display: inline;
     line-height: 30px;
     margin: 0px 5px;
@@ -86,31 +86,31 @@
 }
 
 //Encabezado
-header #btn_categorias {
+header #btn_categorie {
     margin: 20px 0;
 }
 
-header #btn_categorias p {
+header #btn_categorie p {
     line-height: 40px;
     margin-bottom: 0px;
 }
 
-header #btn_categorias p span {
+header #btn_categorie p span {
     cursor: pointer;
 }
 
-header #buscador {
+header #cercatore {
     margin-top: 20px;
     margin-bottom: 20px;
     margin-left: -15px;
 }
 
-header #buscador input {
+header #cercatore input {
     padding-left: 19px;
     border-radius: 0;
 }
 
-header #buscador button {
+header #cercatore button {
     padding: 9px;
     border: 1px solid silver;
     border-radius: 0;
@@ -133,20 +133,20 @@ header #carrito p {
     font-size: 12px;
 }
 
-header #categorias {
+header #categorie {
     display: block;
     margin-top: -10px;
     position: relative;
     padding-bottom: 30px;
 }
 
-header #categorias h4 {
+header #categorie h4 {
     margin-top: 20px;
     margin-bottom: -10px;
     font-weight: bold;
 }
 
-header #categorias hr {
+header #categorie hr {
     border: 1px solid rgba(255, 255, 150 , .3);
 }
 
@@ -222,7 +222,7 @@ header #categorias hr {
     }
 
     //Cima
-    #cima ul {
+    #superiore ul {
         text-align: center;
     }
 
@@ -236,11 +236,11 @@ header #categorias hr {
         padding-bottom: 10px;
     }
 
-    header #categorias {
+    header #categorie {
         margin-bottom: 10px;
     }
 
-    header #buscador {
+    header #cercatore {
         margin-left: 0px;
     }
 
