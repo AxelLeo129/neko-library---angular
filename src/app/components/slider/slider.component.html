@@ -1,16 +1,21 @@
-<div class="container-fluid" id="slide">
-  <div class="row">
-    <ngb-carousel *ngIf="images" [interval]="3000" [pauseOnHover]="true">
+<div class="container-fluid" id="diapositiva">
+  <div class="row" id="cursore">
+    <ngb-carousel *ngIf="images" [interval]="5000" [pauseOnHover]="true">
       <ng-template ngbSlide>
-        <img [src]="imagen_fondo" alt="Random first slide">
+        <img [src]="imagen_fondo" alt="Random first slide" class="w-100">
         <div class="slide--options slide--option--1">
-          <img class="product--img animate__animated animate__slideInDown" style="top: 15%; right: 10%; width: 45%;" [src]="images[0]" alt="">
+          <img class="product--img animate__animated animate__slideInDown" style="top: 15%; right: 10%; width: 45%;"
+            [src]="images[0]" alt="">
           <div class="slide--text" style="top: 20%; left: 10%; width: 40%;">
-            <h1 class="animate__animated animate__fadeIn" style="color: #333">Lorem Ipsum</h1>
-            <h2 class="animate__animated animate__fadeIn" style="color: #777">Lorem ipsum dolor sit</h2>
-            <h3 class="animate__animated animate__fadeIn" style="color: #888">Lorem ipsum dolor sit</h3>
+            <h1 class="animate__animated animate__fadeIn animate__delay-1s animate__delay-1s" style="color: #333">Lorem
+              Ipsum</h1>
+            <h2 class="animate__animated animate__fadeIn animate__delay-1s animate__delay-1s" style="color: #777">Lorem
+              ipsum dolor sit</h2>
+            <h3 class="animate__animated animate__fadeIn animate__delay-1s animate__delay-1s" style="color: #888">Lorem
+              ipsum dolor sit</h3>
             <a>
-              <button  class="animate__animated animate__fadeIn btn btn-info back--color text-uppercase">
+              <button
+                class="animate__animated animate__fadeIn animate__delay-1s animate__delay-1s btn btn-info back--color text-uppercase">
                 VER PRODUCTO <fa-icon [icon]="faChevronRight"></fa-icon>
               </button>
             </a>
@@ -18,15 +23,19 @@
         </div>
       </ng-template>
       <ng-template ngbSlide>
-        <img [src]="imagen_fondo" alt="Random first slide">
+        <img [src]="imagen_fondo" alt="Random first slide" class="w-100">
         <div class="slide--options slide--option--2">
-          <img class="product--img animate__animated animate__slideInDown" style="top: 5%; left: 15%; width: 25%;" [src]="images[1]" alt="">
+          <img class="product--img animate__animated animate__slideInDown" style="top: 5%; left: 15%; width: 25%;"
+            [src]="images[1]" alt="">
           <div class="slide--text" style="top: 20%; right: 10%; width: 40%;">
-            <h1 class="animate__animated animate__fadeIn" style="color: #333">Lorem Ipsum</h1>
-            <h2 class="animate__animated animate__fadeIn" style="color: #777">Lorem ipsum dolor sit</h2>
-            <h3 class="animate__animated animate__fadeIn" style="color: #888">Lorem ipsum dolor sit</h3>
+            <h1 class="animate__animated animate__fadeIn animate__delay-1s" style="color: #333">Lorem Ipsum</h1>
+            <h2 class="animate__animated animate__fadeIn animate__delay-1s" style="color: #777">Lorem ipsum dolor sit
+            </h2>
+            <h3 class="animate__animated animate__fadeIn animate__delay-1s" style="color: #888">Lorem ipsum dolor sit
+            </h3>
             <a>
-              <button class="animate__animated animate__fadeIn btn btn-info back--color text-uppercase">
+              <button
+                class="animate__animated animate__fadeIn animate__delay-1s btn btn-info back--color text-uppercase">
                 VER PRODUCTO <fa-icon [icon]="faChevronRight"></fa-icon>
               </button>
             </a>
@@ -34,15 +43,19 @@
         </div>
       </ng-template>
       <ng-template ngbSlide>
-        <img [src]="imagen_fondo1" alt="Random first slide">
+        <img [src]="imagen_fondo1" alt="Random first slide" class="w-100">
         <div class="slide--options slide--option--2">
-          <img class="product--img animate__animated animate__slideInDown" style="top: 5%; left: 15%; width: 25%;" [src]="images[2]" alt="">
+          <img class="product--img animate__animated animate__slideInDown" style="top: 5%; left: 15%; width: 25%;"
+            [src]="images[2]" alt="">
           <div class="slide--text" style="top: 20%; right: 10%; width: 40%;">
-            <h1 class="animate__animated animate__fadeIn" style="color: #fff">Lorem Ipsum</h1>
-            <h2 class="animate__animated animate__fadeIn" style="color: #eee">Lorem ipsum dolor sit</h2>
-            <h3 class="animate__animated animate__fadeIn" style="color: #eee">Lorem ipsum dolor sit</h3>
+            <h1 class="animate__animated animate__fadeIn animate__delay-1s" style="color: #fff">Lorem Ipsum</h1>
+            <h2 class="animate__animated animate__fadeIn animate__delay-1s" style="color: #eee">Lorem ipsum dolor sit
+            </h2>
+            <h3 class="animate__animated animate__fadeIn animate__delay-1s" style="color: #eee">Lorem ipsum dolor sit
+            </h3>
             <a>
-              <button class="animate__animated animate__fadeIn btn btn-info back--color text-uppercase">
+              <button
+                class="animate__animated animate__fadeIn animate__delay-1s btn btn-info back--color text-uppercase">
                 VER PRODUCTO <fa-icon [icon]="faChevronRight"></fa-icon>
               </button>
             </a>
@@ -50,15 +63,19 @@
         </div>
       </ng-template>
       <ng-template ngbSlide>
-        <img [src]="imagen_fondo2" alt="Random first slide">
+        <img [src]="imagen_fondo2" alt="Random first slide" class="w-100">
         <div class="slide--options slide--option--1">
-          <img class="product--img animate__animated animate__slideInDown" style="top: 5%; right: 15%; width: 25%;" [src]="" alt="">
+          <img class="product--img animate__animated animate__slideInDown" style="top: 5%; right: 15%; width: 25%;"
+            [src]="" alt="">
           <div class="slide--text" style="top: 20%; left: 10%; width: 40%;">
-            <h1 class="animate__animated animate__fadeIn" style="color: #333">Lorem Ipsum</h1>
-            <h2 class="animate__animated animate__fadeIn" style="color: #777">Lorem ipsum dolor sit</h2>
-            <h3 class="animate__animated animate__fadeIn" style="color: #888">Lorem ipsum dolor sit</h3>
+            <h1 class="animate__animated animate__fadeIn animate__delay-1s" style="color: #333">Lorem Ipsum</h1>
+            <h2 class="animate__animated animate__fadeIn animate__delay-1s" style="color: #777">Lorem ipsum dolor sit
+            </h2>
+            <h3 class="animate__animated animate__fadeIn animate__delay-1s" style="color: #888">Lorem ipsum dolor sit
+            </h3>
             <a>
-              <button class="animate__animated animate__fadeIn btn btn-info back--color text-uppercase">
+              <button
+                class="animate__animated animate__fadeIn animate__delay-1s btn btn-info back--color text-uppercase">
                 VER PRODUCTO <fa-icon [icon]="faChevronRight"></fa-icon>
               </button>
             </a>
@@ -66,5 +83,12 @@
         </div>
       </ng-template>
     </ngb-carousel>
+  </div>
+  <div class="row">
+    <div class="col-12" style="display: flex; justify-content: center;">
+      <button (click)="hideSlide()" id="boton_slide" class="btn btn-info back--color">
+        <fa-icon [icon]="faAngle"></fa-icon>
+      </button>
+    </div>
   </div>
 </div>

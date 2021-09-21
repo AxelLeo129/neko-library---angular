@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { faChevronRight, faAngleUp, faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import { toggle } from 'slidetoggle';
 
 @Component({
   selector: 'app-slider',
@@ -13,6 +14,7 @@ export class SliderComponent implements OnInit {
   public imagen_fondo1: string = "https://firebasestorage.googleapis.com/v0/b/neko-library.appspot.com/o/slide%2Ffondo2.jpg?alt=media&token=a03912a3-d37c-4106-8eda-833e69ce9bc9";
   public imagen_fondo2: string = "https://firebasestorage.googleapis.com/v0/b/neko-library.appspot.com/o/slide%2Ffondo3.jpg?alt=media&token=15b1a7ab-466a-4f6a-ac57-4a0babeb63e1";
   public faChevronRight = faChevronRight;
+  public faAngle = faAngleUp;
 
   images = [
     "https://firebasestorage.googleapis.com/v0/b/neko-library.appspot.com/o/slide%2Fcalzado.png?alt=media&token=9b5fa55f-a4f7-4140-9a1e-4018600a51e4",
@@ -23,6 +25,15 @@ export class SliderComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  hideSlide(): void {
+    const element = document.getElementById('cursore');
+    this.faAngle = this.faAngle == faAngleDown ? faAngleUp : faAngleDown;
+    toggle(element, {
+      miliseconds: 300,
+      transitionFunction: 'ease-in',
+    });
   }
 
 }
