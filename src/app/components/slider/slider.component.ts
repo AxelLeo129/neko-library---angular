@@ -16,14 +16,14 @@ export class SliderComponent implements OnInit {
   public faAngle = faAngleUp;
   public cursore: Array<any>[] = [];
 
-  constructor(private generalService: GeneralService, private sanitizer: DomSanitizer) { }
+  constructor(private general_service: GeneralService, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
     this.getSlider();
   }
 
   getSlider() {
-    this.generalService.get('slider').then((response) => {
+    this.general_service.get('slider').then((response) => {
       response.forEach(element => {
         element.stile_immagine = JSON.parse(element.stile_immagine);
         element.stile_testo = JSON.parse(element.stile_testo);

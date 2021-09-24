@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Event, NavigationEnd, NavigationStart, Router } from '@angular/router';
+import { ActivatedRoute, Event, NavigationEnd, Router } from '@angular/router';
 import { GeneralService } from 'src/app/services/general.service';
 import { NgxSpinnerService } from "ngx-spinner";
 import { Subscription } from 'rxjs';

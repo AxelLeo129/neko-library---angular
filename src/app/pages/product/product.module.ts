@@ -5,9 +5,10 @@ import { ProductRoutingModule } from './product-routing.module';
 import { ProductComponent } from './product.component';
 import { NotFoundComponent } from 'src/app/components/not-found/not-found.component';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { LoaderComponent } from 'src/app/components/loader/loader.component';
 
 @NgModule({
-  declarations: [ProductComponent, NotFoundComponent],
+  declarations: [ProductComponent, NotFoundComponent, LoaderComponent],
   imports: [
     CommonModule,
     ProductRoutingModule,

@@ -1,9 +1,6 @@
 <div style="position: relative; min-height: 25%;">
     <ng-container *ngIf="cargando; else cargado">
-        <ngx-spinner bdColor="rgb(255,255,255)" size="medium" color="#47bac1" type="ball-spin-clockwise"
-            [fullScreen]="false">
-            <p style="color: #47bac1"> Cargando... </p>
-        </ngx-spinner>
+        <app-loader [pantalla_completa]="false"></app-loader>
     </ng-container>
     <ng-template #cargado>
         <ng-container *ngIf="categoria_subcategoria_encontrada == true; else not_found">
