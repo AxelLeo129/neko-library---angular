@@ -1,19 +1,16 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ProductRoutingModule } from './product-routing.module';
 import { ProductComponent } from './product.component';
-import { NotFoundComponent } from 'src/app/components/not-found/not-found.component';
-import { NgxSpinnerModule } from "ngx-spinner";
-import { LoaderComponent } from 'src/app/components/loader/loader.component';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
-  declarations: [ProductComponent, NotFoundComponent, LoaderComponent],
+  declarations: [ProductComponent],
   imports: [
     CommonModule,
     ProductRoutingModule,
-    NgxSpinnerModule
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    ComponentsModule
+  ]
 })
 export class ProductModule { }

@@ -1,0 +1,51 @@
+//Banner
+.banner {
+    position: relative;
+    overflow: hidden;
+    height: 260px;
+}
+
+.banner .banner--text {
+    position: absolute;
+    font-family: 'Ubuntu Condensed', sans-serif;
+}
+
+.banner .right--text {
+    top: 50px;
+    right: 50px;
+    text-align: right;
+}
+
+.banner .left--text {
+    top: 50px;
+    left: 50px;
+    text-align: left;
+}
+
+.banner .center--text {
+    top: 50px;
+    left: 50%;
+    width: 800px;
+    margin-left: -400px;
+    text-align: center;
+}
+
+.banner--text h1 {
+    font-size: 35px;
+    line-height: 25px;
+}
+
+.banner--text h2 {
+    font-size: 30px;
+    line-height: 25px;
+}
+
+.banner--text h3 {
+    font-size: 24px;
+    line-height: 25px;
+}
+
+// Barra Productos
+.produts--bar .organization--products span {
+    margin-left: 5px;
+}
