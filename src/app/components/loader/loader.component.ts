@@ -9,8 +9,8 @@ import { GeneralService } from 'src/app/services/general.service';
 export class LoaderComponent implements OnInit {
 
   @Input() pantalla_completa: boolean;
-  public colore_sfondo: string;
-  public colore_testo: string;
+  public colore_sfondo: string = "#47bac1";
+  public colore_testo: string = "#ffffff";
 
   constructor(private general_service: GeneralService) { }
 

@@ -1,6 +1,7 @@
 <!-- Banner -->
-<figure class="banner">
-    <img src="https://firebasestorage.googleapis.com/v0/b/neko-library.appspot.com/o/banner%2Fdefault.jpg?alt=media&token=6202dc4a-b631-4f01-b2bc-ab300b8fdc0a" class="img-responsive" width="100%">
+<figure class="banner mt-3">
+    <img src="https://firebasestorage.googleapis.com/v0/b/neko-library.appspot.com/o/banner%2Fdefault.jpg?alt=media&token=6202dc4a-b631-4f01-b2bc-ab300b8fdc0a"
+        class="img-fluid" width="100%">
     <div class="banner--text right--text">
         <h1 style="color: #fff;">OFERTAS ESPECIALES</h1>
         <h2 style="color: #fff;"><strong>50% off</strong></h2>
@@ -8,20 +9,198 @@
     </div>
 </figure>
 <!-- Productos gratis -->
-<div class="container-fluid well well-sm produts--bar">
+<div class="container-fluid produtcs--bar">
     <div class="container">
-        <div class="col-xs-12 organization--products">
-            <div class="btn-group float-right">
-                <button type="button" class="btn btn-default btn--grid" id="griglia_pulsante0">
-                    <fa-icon [icon]="faTh"></fa-icon>
-                    <span class="col-xs-0 float-right">GRID</span>
-                </button>
-                <button type="button" class="btn btn-default btn--list" id="lista_pulsante0">
-                    <fa-icon [icon]="faList"></fa-icon>
-                    <span class="col-xs-0 float-right">LIST</span>
-                </button>
+        <div class="row">
+            <div class="col-xs-12 col-md-12 organization--products">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <div class="btn-group float-right">
+                            <button type="button" class="btn btn-default btn--grid" id="griglia_pulsante0">
+                                <fa-icon [icon]="faTh"></fa-icon>
+                                <span class="col-xs-0 float-right">GRID</span>
+                            </button>
+                            <button type="button" class="btn btn-default btn--list" id="lista_pulsante0">
+                                <fa-icon [icon]="faList"></fa-icon>
+                                <span class="col-xs-0 float-right">LIST</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
-<!-- Productos gratis -->
+<!-- Vitrina productos gratis -->
+<div class="container-fluid products mt-3">
+    <div class="container">
+        <div class="row feature--title">
+            <!-- Barra titulo -->
+            <div class="col-sm-6 col-xs-12">
+                <h1>
+                    <small>ARTÍCULOS DESTACADOS</small>
+                </h1>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <a routerLink="/articulos-gratis">
+                    <button class="btn btn-info back--color float-right">
+                        VER MÁS <fa-icon [icon]="faChevronRight"></fa-icon>
+                    </button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- Vitrina productos en cuadricula -->
+        <ul class="grid--0 row">
+            <!-- Producto 1 -->
+            <li class="col-md-3 col-sm-6 col-xs-12">
+                <figure>
+                    <a routerLink="#" class="pixel--product">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/neko-library.appspot.com/o/products%2Faccesorio04.jpg?alt=media&token=4557c7cd-440e-4575-bf3c-3b61704a5861"
+                            class="img-fluid">
+                    </a>
+                </figure>
+                <h4>
+                    <small>
+                        <a href="" class="pixel--product">
+                            Collar de diemantes <br>
+                        </a>
+                    </small>
+                </h4>
+                <div class="row">
+                    <div class="col-md-6 col-xs-6 price">
+                        <h2>
+                            <small>GRATIS</small>
+                        </h2>
+                    </div>
+                    <div class="col-md-6 col-xs-6 links">
+                        <div class="btn-group float-right">
+                            <button type="button" class="btn btn-default btn-xs wishes" placement="top"
+                                ngbTooltip="Agregar a favoritos">
+                                <fa-icon [icon]="faHeart"></fa-icon>
+                            </button>
+                            <a routerLink="#" class="pixel--product">
+                                <button type="button" class="btn btn-default btn-xs wishes" placement="top"
+                                    ngbTooltip="Ver producto">
+                                    <fa-icon [icon]="faEye"></fa-icon>
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <!-- Producto 2 -->
+            <li class="col-md-3 col-sm-6 col-xs-12">
+                <figure>
+                    <a routerLink="#" class="pixel--product">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/neko-library.appspot.com/o/products%2Faccesorio03.jpg?alt=media&token=d90b84e3-1066-4487-b17a-77e10b5a5e2d"
+                            class="img-fluid">
+                    </a>
+                </figure>
+                <h4>
+                    <small>
+                        <a href="" class="pixel--product">
+                            Bolso deportivo gris <br>
+                        </a>
+                    </small>
+                </h4>
+                <div class="row">
+                    <div class="col-md-6 col-xs-6 price">
+                        <h2>
+                            <small>GRATIS</small>
+                        </h2>
+                    </div>
+                    <div class="col-md-6 col-xs-6 links">
+                        <div class="btn-group float-right">
+                            <button type="button" class="btn btn-default btn-xs wishes" placement="top"
+                                ngbTooltip="Agregar a favoritos">
+                                <fa-icon [icon]="faHeart"></fa-icon>
+                            </button>
+                            <a routerLink="#" class="pixel--product">
+                                <button type="button" class="btn btn-default btn-xs wishes" placement="top"
+                                    ngbTooltip="Ver producto">
+                                    <fa-icon [icon]="faEye"></fa-icon>
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <!-- Producto 3 -->
+            <li class="col-md-3 col-sm-6 col-xs-12">
+                <figure>
+                    <a routerLink="#" class="pixel--product">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/neko-library.appspot.com/o/products%2Faccesorio02.jpg?alt=media&token=ee6f7879-49ba-47d9-8fdf-1c3d9cf7b742"
+                            class="img-fluid">
+                    </a>
+                </figure>
+                <h4>
+                    <small>
+                        <a href="" class="pixel--product">
+                            Bolso militar <br>
+                        </a>
+                    </small>
+                </h4>
+                <div class="row">
+                    <div class="col-md-6 col-xs-6 price">
+                        <h2>
+                            <small>GRATIS</small>
+                        </h2>
+                    </div>
+                    <div class="col-md-6 col-xs-6 links">
+                        <div class="btn-group float-right">
+                            <button type="button" class="btn btn-default btn-xs wishes" placement="top"
+                                ngbTooltip="Agregar a favoritos">
+                                <fa-icon [icon]="faHeart"></fa-icon>
+                            </button>
+                            <a routerLink="#" class="pixel--product">
+                                <button type="button" class="btn btn-default btn-xs wishes" placement="top"
+                                    ngbTooltip="Ver producto">
+                                    <fa-icon [icon]="faEye"></fa-icon>
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <!-- Producto 4 -->
+            <li class="col-md-3 col-sm-6 col-xs-12">
+                <figure>
+                    <a routerLink="#" class="pixel--product">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/neko-library.appspot.com/o/products%2Faccesorio01.jpg?alt=media&token=1a243146-7200-4631-9000-34a284c9e2c0"
+                            class="img-fluid">
+                    </a>
+                </figure>
+                <h4>
+                    <small>
+                        <a href="" class="pixel--product">
+                            Pulsera diamantes <br>
+                        </a>
+                    </small>
+                </h4>
+                <div class="row">
+                    <div class="col-md-6 col-xs-6 price">
+                        <h2>
+                            <small>GRATIS</small>
+                        </h2>
+                    </div>
+                    <div class="col-md-6 col-xs-6 links">
+                        <div class="btn-group float-right">
+                            <button type="button" class="btn btn-default btn-xs wishes" placement="top"
+                                ngbTooltip="Agregar a favoritos">
+                                <fa-icon [icon]="faHeart"></fa-icon>
+                            </button>
+                            <a routerLink="#" class="pixel--product">
+                                <button type="button" class="btn btn-default btn-xs wishes" placement="top"
+                                    ngbTooltip="Ver producto">
+                                    <fa-icon [icon]="faEye"></fa-icon>
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+</div>

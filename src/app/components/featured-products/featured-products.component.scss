@@ -1,4 +1,8 @@
 //Banner
+.row {
+    margin: 0;
+}
+
 .banner {
     position: relative;
     overflow: hidden;
@@ -45,7 +49,54 @@
     line-height: 25px;
 }
 
-// Barra Productos
-.produts--bar .organization--products span {
+// Barra productos
+.produtcs--bar .organization--products span {
     margin-left: 5px;
+}
+
+
+// Vitrina productos cuadricula
+.feature--title h1 {
+    margin-top: -5px;
+}
+
+.feature--title button span {
+    margin-left: 5px;
+}
+
+.products ul li a img:hover {
+    transition: .3s all ease;
+    opacity: .8;
+    transform: scale(1.1, 1.1);
+}
+
+.products ul li h4 small {
+    color: #777;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.products ul li h4 small a {
+    color: #777;
+}
+
+.products ul li div.price {
+    padding: 0;
+    margin-top: -30px;
+    padding-bottom: 20px;
+}
+
+.products ul li div.links {
+    padding: 0;
+    padding-bottom: 20px;
+}
+
+.products ul li div.links button {
+    margin: 2px
+}
+
+.products ul li div.links button fa-icon {
+    color: #999;
+    font-size: 12px;
 }

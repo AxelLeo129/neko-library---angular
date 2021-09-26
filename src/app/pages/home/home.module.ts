@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { SliderComponent } from 'src/app/components/slider/slider.component';
-import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCarouselModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FeaturedProductsComponent } from 'src/app/components/featured-products/featured-products.component';
 
@@ -15,6 +15,7 @@ import { FeaturedProductsComponent } from 'src/app/components/featured-products/
     HomeRoutingModule,
     NgbCarouselModule,
     FontAwesomeModule,
+    NgbTooltipModule
   ]
 })
 export class HomeModule { }

@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import { faChevronRight, faAngleUp, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { toggle } from 'slidetoggle';
 import { GeneralService } from 'src/app/services/general.service';
@@ -16,7 +17,7 @@ export class SliderComponent implements OnInit {
   public faAngle = faAngleUp;
   public cursore: Array<any>[] = [];
 
-  constructor(private general_service: GeneralService, private sanitizer: DomSanitizer) { }
+  constructor(private general_service: GeneralService, private sanitizer: DomSanitizer, private router: Router) { }
 
   ngOnInit(): void {
     this.getSlider();
@@ -37,12 +38,16 @@ export class SliderComponent implements OnInit {
   }
 
   hideSlide(): void {
-    const element = document.getElementById('cursore');
+    const elemento = document.getElementById('cursore');
     this.faAngle = this.faAngle == faAngleDown ? faAngleUp : faAngleDown;
-    toggle(element, {
+    toggle(elemento, {
       miliseconds: 300,
       transitionFunction: 'ease-in',
     });
+  }
+
+  goToRoute(rotta: string): void {
+    this.router.navigate([rotta]);
   }
 
 }
