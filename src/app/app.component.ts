@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
       sessionStorage.setItem("loaded", JSON.stringify(true));
       setTimeout(() => {
         this.spinner.hide();
-      }, 1500);
+      }, 3000);
     }
   }
 }
