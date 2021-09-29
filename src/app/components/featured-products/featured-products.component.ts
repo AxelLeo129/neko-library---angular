@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faTh, faList, faChevronRight, faHeart, faEye } from '@fortawesome/free-solid-svg-icons';
+import { faTh, faList, faChevronRight, faHeart, faEye, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-featured-products',
@@ -13,6 +13,7 @@ export class FeaturedProductsComponent implements OnInit {
   public faChevronRight = faChevronRight;
   public faHeart = faHeart;
   public faEye = faEye;
+  public faShoppingCart = faShoppingCart;
 
   constructor() { }
 

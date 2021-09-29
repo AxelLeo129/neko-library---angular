@@ -204,6 +204,7 @@
     </div>
 </div>
 
+<!-- Productos más vendidos -->
 <div class="container-fluid products--bar">
     <div class="container">
         <div class="row">
@@ -226,14 +227,14 @@
         </div>
     </div>
 </div>
-<!-- Vitrina productos gratis -->
+<!-- Vitrina productos más vendidos -->
 <div class="container-fluid products mt-3">
     <div class="container">
         <div class="row feature--title">
             <!-- Barra titulo -->
             <div class="col-sm-6 col-xs-12">
                 <h1>
-                    <small>ARTÍCULOS VENDIDOS</small>
+                    <small>ARTÍCULOS MÁS VENDIDOS</small>
                 </h1>
             </div>
             <div class="col-sm-6 col-xs-12">
@@ -389,6 +390,223 @@
                             <button type="button" class="btn btn-default btn-xs wishes" placement="top"
                                 ngbTooltip="Agregar a favoritos">
                                 <fa-icon [icon]="faHeart"></fa-icon>
+                            </button>
+                            <a routerLink="#" class="pixel--product">
+                                <button type="button" class="btn btn-default btn-xs wishes" placement="top"
+                                    ngbTooltip="Ver producto">
+                                    <fa-icon [icon]="faEye"></fa-icon>
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+<!-- Productos más vistos -->
+<div class="container-fluid products--bar">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-12 organization--products">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <div class="btn-group float-right">
+                            <button type="button" class="btn btn-default btn--grid" id="griglia_pulsante0">
+                                <fa-icon [icon]="faTh"></fa-icon>
+                                <span class="col-xs-0 float-right">GRID</span>
+                            </button>
+                            <button type="button" class="btn btn-default btn--list" id="lista_pulsante0">
+                                <fa-icon [icon]="faList"></fa-icon>
+                                <span class="col-xs-0 float-right">LIST</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Vitrina productos más vistos -->
+<div class="container-fluid products mt-3">
+    <div class="container">
+        <div class="row feature--title">
+            <!-- Barra titulo -->
+            <div class="col-sm-6 col-xs-12">
+                <h1>
+                    <small>ARTÍCULOS MÁS VISTOS</small>
+                </h1>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <a routerLink="/articulos-gratis">
+                    <button class="btn btn-info back--color float-right">
+                        VER MÁS <fa-icon [icon]="faChevronRight"></fa-icon>
+                    </button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- Vitrina productos en cuadricula -->
+        <ul class="grid--0 row">
+            <!-- Producto 1 -->
+            <li class="col-md-3 col-sm-6 col-xs-12">
+                <figure>
+                    <a routerLink="#" class="pixel--product">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/neko-library.appspot.com/o/products%2Fcurso05.jpg?alt=media&token=07e4a5c3-309d-4e3e-8ffc-74a28aa98561"
+                            class="img-fluid">
+                    </a>
+                </figure>
+                <h4>
+                    <small>
+                        <a href="" class="pixel--product">
+                            CURSO DE BOOTSTRAP <br>
+                            <span class="badge badge-warning offer--badge">90% OFF</span>
+                        </a>
+                    </small>
+                </h4>
+                <div class="row">
+                    <div class="col-md-6 col-xs-6 price">
+                        <h2>
+                            <small><strong class="offer">USD $100</strong> $10</small>
+                        </h2>
+                    </div>
+                    <div class="col-md-6 col-xs-6 links">
+                        <div class="btn-group float-right">
+                            <button type="button" class="btn btn-default btn-xs wishes" placement="top"
+                                ngbTooltip="Agregar a favoritos">
+                                <fa-icon [icon]="faHeart"></fa-icon>
+                            </button>
+                            <button type="button" class="btn btn-default btn-xs wishes" placement="top"
+                                ngbTooltip="Agregar al carrito">
+                                <fa-icon [icon]="faShoppingCart"></fa-icon>
+                            </button>
+                            <a routerLink="#" class="pixel--product">
+                                <button type="button" class="btn btn-default btn-xs wishes" placement="top"
+                                    ngbTooltip="Ver producto">
+                                    <fa-icon [icon]="faEye"></fa-icon>
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <!-- Producto 2 -->
+            <li class="col-md-3 col-sm-6 col-xs-12">
+                <figure>
+                    <a routerLink="#" class="pixel--product">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/neko-library.appspot.com/o/products%2Fcurso04.jpg?alt=media&token=ac029e8f-a831-4fbf-920b-5f7ef4d3e5c5"
+                            class="img-fluid">
+                    </a>
+                </figure>
+                <h4>
+                    <small>
+                        <a href="" class="pixel--product">
+                            CURSO DE CANVAS Y JAVASCRIPT <br>
+                            <span class="badge badge-warning offer--badge">90% OFF</span>
+                        </a>
+                    </small>
+                </h4>
+                <div class="row">
+                    <div class="col-md-6 col-xs-6 price">
+                        <h2>
+                            <small><strong class="offer">USD $100</strong> $10</small>
+                        </h2>
+                    </div>
+                    <div class="col-md-6 col-xs-6 links">
+                        <div class="btn-group float-right">
+                            <button type="button" class="btn btn-default btn-xs wishes" placement="top"
+                                ngbTooltip="Agregar a favoritos">
+                                <fa-icon [icon]="faHeart"></fa-icon>
+                            </button>
+                            <button type="button" class="btn btn-default btn-xs wishes" placement="top"
+                                ngbTooltip="Agregar al carrito">
+                                <fa-icon [icon]="faShoppingCart"></fa-icon>
+                            </button>
+                            <a routerLink="#" class="pixel--product">
+                                <button type="button" class="btn btn-default btn-xs wishes" placement="top"
+                                    ngbTooltip="Ver producto">
+                                    <fa-icon [icon]="faEye"></fa-icon>
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <!-- Producto 3 -->
+            <li class="col-md-3 col-sm-6 col-xs-12">
+                <figure>
+                    <a routerLink="#" class="pixel--product">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/neko-library.appspot.com/o/products%2Fcurso02.jpg?alt=media&token=9eb20ff9-1d23-4370-beb3-337038ad8cdd"
+                            class="img-fluid">
+                    </a>
+                </figure>
+                <h4>
+                    <small>
+                        <a href="" class="pixel--product">
+                            CURSO DE JAVASCRIPT DESDE 0 <br>
+                            <span class="badge badge-warning offer--badge">90% OFF</span>
+                        </a>
+                    </small>
+                </h4>
+                <div class="row">
+                    <div class="col-md-6 col-xs-6 price">
+                        <h2>
+                            <small><strong class="offer">USD $100</strong> $10</small>
+                        </h2>
+                    </div>
+                    <div class="col-md-6 col-xs-6 links">
+                        <div class="btn-group float-right">
+                            <button type="button" class="btn btn-default btn-xs wishes" placement="top"
+                                ngbTooltip="Agregar a favoritos">
+                                <fa-icon [icon]="faHeart"></fa-icon>
+                            </button>
+                            <button type="button" class="btn btn-default btn-xs wishes" placement="top"
+                                ngbTooltip="Agregar al carrito">
+                                <fa-icon [icon]="faShoppingCart"></fa-icon>
+                            </button>
+                            <a routerLink="#" class="pixel--product">
+                                <button type="button" class="btn btn-default btn-xs wishes" placement="top"
+                                    ngbTooltip="Ver producto">
+                                    <fa-icon [icon]="faEye"></fa-icon>
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <!-- Producto 4 -->
+            <li class="col-md-3 col-sm-6 col-xs-12">
+                <figure>
+                    <a routerLink="#" class="pixel--product">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/neko-library.appspot.com/o/products%2Fcurso03.jpg?alt=media&token=2c8e4ade-a521-4713-af73-240c64fa7309"
+                            class="img-fluid">
+                    </a>
+                </figure>
+                <h4>
+                    <small>
+                        <a href="" class="pixel--product">
+                            CURSO DE JQUERY <br>
+                            <span class="badge badge-warning offer--badge">90% OFF</span>
+                        </a>
+                    </small>
+                </h4>
+                <div class="row">
+                    <div class="col-md-6 col-xs-6 price">
+                        <h2>
+                            <small><strong class="offer">USD $100</strong> $10</small>
+                        </h2>
+                    </div>
+                    <div class="col-md-6 col-xs-6 links">
+                        <div class="btn-group float-right">
+                            <button type="button" class="btn btn-default btn-xs wishes" placement="top"
+                                ngbTooltip="Agregar a favoritos">
+                                <fa-icon [icon]="faHeart"></fa-icon>
+                            </button>
+                            <button type="button" class="btn btn-default btn-xs wishes" placement="top"
+                                ngbTooltip="Agregar al carrito">
+                                <fa-icon [icon]="faShoppingCart"></fa-icon>
                             </button>
                             <a routerLink="#" class="pixel--product">
                                 <button type="button" class="btn btn-default btn-xs wishes" placement="top"
