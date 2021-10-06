@@ -1,121 +1,177 @@
-<div class="container-fluid" [ngStyle]="{'background-color': barra_alto}" id="superiore">
-  <div class="container-fluid">
-    <div class="row">
-      <!-- Social -->
-      <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12 social">
-        <ul>
-          <li *ngFor="let rete_sociale of social_networks">
-            <a [ngStyle]="{'color': testo_alto}" [href]="rete_sociale.url" target="_blank">
-              <fa-icon [icon]="brandIcons[rete_sociale.rete]" class="social--network" [ngClass]="rete_sociale.estilo"></fa-icon>
-            </a>
-          </li>
-        </ul>
-      </div>
-      <!-- Registro -->
-      <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 register">
-        <ul>
-          <li>
-            <a [ngStyle]="{'color': testo_alto}" href="#modal_ingreso" data-toggle="modal">Ingresar</a>
-          </li>
-          <li>
-            |
-          </li>
-          <li>
-            <a [ngStyle]="{'color': testo_alto}" href="#modal_registro" data-toggle="modal">Crear una cuenta</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Encabezado -->
-<header class="container-fluid mb-3">
-  <div class="container">
-    <div class="row" id="intestazione">
-      <!-- Logo -->
-      <div class="col-lg-3 col-md-3 col-sm-2 col-xs-12" id="logo">
-        <a (click)="goHome()" style="cursor: pointer;">
-          <img [src]="immagine_logo" class="img-fluid">
-        </a>
-      </div>
-      <!-- Buscador y categorias -->
-      <div class="col-lg-6 col-md-6 col-sm-8 col-xs-12">
-        <div class="row">
-          <!-- Boton Categorias -->
-          <div (click)="showCategorias()" class="col-lg-4 col-md-4 col-sm-4 col-xs-12" [ngStyle]="{'background-color': colore_sfondo, 'color': colore_testo}" id="btn_categorie">
-            <p>
-              Categorias
-              <span class="float-right">
-                <fa-icon [icon]="faBars"></fa-icon>
-              </span>
-            </p>
-          </div>
-          <!-- Categorias -->
-          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" [ngStyle]="{'background-color': colore_nascosto, 'color': colore_testo}" style="display: none;" id="categorie" *ngIf="!categorie_normale">
-            <div class="row">
-              <div *ngFor="let categoria of categorie" class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
-                <h4>
-                  <a [ngStyle]="{'background-color': colore_sfondo, 'color': colore_testo}" (click)="searchByCategorie(categoria.rotta)" class="pixel--categories">
-                    {{categoria.nome}}
-                  </a>
-                </h4>
-                <hr>
-                <ul>
-                  <li *ngFor="let sottocategoria of categoria.sottocategorie">
-                    <a [ngStyle]="{'background-color': colore_sfondo, 'color': colore_testo}" (click)="searchByCategorie(categoria.rotta + '/' + sottocategoria.rotta)" class="pixel-subcategories">
-                      {{sottocategoria.nome}}
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <!-- Buscador -->
-          <div class="input-group col-lg-8 col-md-8 col-sm-8 col-xs-12" id="cercatore">
-            <input type="search" name="buscar" class="form-control" placeholder="Buscar...">
-            <span class="input-group-btn">
-              <a href="#">
-                <button class="btn btn-default" [ngStyle]="{'background-color': colore_sfondo, 'color': colore_testo}" type="submit">
-                  <fa-icon [icon]="faSearch"></fa-icon>
-                </button>
-              </a>
-            </span>
-          </div>
+<ng-container *ngIf="caricato; else cargado">
+  <app-skeleton [quantita]="1" [animazione]="'progress'" [aspetto]="'line'" [tema]="{ 
+    'border-radius': '5px',
+    height: '50px',
+    'background-color': '#E6E6E6',
+    border: '1px solid white'
+  }"></app-skeleton>
+  <header class="container-fluid mb-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-md-4">
+          <app-skeleton [quantita]="1" [animazione]="'progress'" [aspetto]="'line'" [tema]="{ 
+        'border-radius': '5px',
+        height: '50px',
+        'background-color': '#E6E6E6',
+        border: '1px solid white',
+        width: '75%'
+      }"></app-skeleton>
+        </div>
+        <div class="col-xs-12 col-md-4">
+          <app-skeleton [quantita]="1" [animazione]="'progress'" [aspetto]="'line'" [tema]="{ 
+        'border-radius': '5px',
+        height: '50px',
+        'background-color': '#E6E6E6',
+        border: '1px solid white',
+        width: '75%'
+      }"></app-skeleton>
+        </div>
+        <div class="col-xs-12 col-md-4">
+          <app-skeleton [quantita]="1" [animazione]="'progress'" [aspetto]="'line'" [tema]="{ 
+        'border-radius': '5px',
+        height: '50px',
+        'background-color': '#E6E6E6',
+        border: '1px solid white',
+        width: '75%'
+      }"></app-skeleton>
         </div>
       </div>
-      <!-- Carrito -->
-      <div class="col-lg-3 col-md-3 col-sm-2 col-xs-12" id="carrito">
-        <a href="#">
-          <button class="btn btn-default float-left" [ngStyle]="{'background-color': colore_sfondo, 'color': colore_testo}">
-            <fa-icon [icon]="faShoppingCart"></fa-icon>
-          </button>
-        </a>
-        <p>TU CESTA
-          <span class="basket--quantity"></span>
-          <br>
-          USD $ <span class="basket--sum"></span>
-        </p>
-      </div>
     </div>
-    <!-- Categorias -->
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" [ngStyle]="{'background-color': colore_nascosto, 'color': colore_testo}" style="display: none;" id="categorie" *ngIf="categorie_normale">
+  </header>
+</ng-container>
+<ng-template #cargado>
+  <div class="container-fluid" [ngStyle]="{'background-color': barra_alto}" id="superiore">
+    <div class="container-fluid">
       <div class="row">
-        <div *ngFor="let categoria of categorie" class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
-          <h4>
-            <a [ngStyle]="{'background-color': colore_sfondo, 'color': colore_testo}" (click)="searchByCategorie(categoria.rotta)" class="pixel--categories">
-              {{categoria.nome}}
-            </a>
-          </h4>
-          <hr>
+        <!-- Social -->
+        <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12 social">
           <ul>
-            <li *ngFor="let sottocategoria of categoria.sottocategorie">
-              <a [ngStyle]="{'background-color': colore_sfondo, 'color': colore_testo}" (click)="searchByCategorie(categoria.rotta + '/' + sottocategoria.rotta)" class="pixel-subcategories">
-                {{sottocategoria.nome}}
+            <li *ngFor="let rete_sociale of social_networks">
+              <a [ngStyle]="{'color': testo_alto}" [href]="rete_sociale.url" target="_blank">
+                <fa-icon [icon]="brandIcons[rete_sociale.rete]" class="social--network" [ngClass]="rete_sociale.estilo">
+                </fa-icon>
               </a>
+            </li>
+          </ul>
+        </div>
+        <!-- Registro -->
+        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 register">
+          <ul>
+            <li>
+              <a [ngStyle]="{'color': testo_alto}" href="#modal_ingreso" data-toggle="modal">Ingresar</a>
+            </li>
+            <li>
+              |
+            </li>
+            <li>
+              <a [ngStyle]="{'color': testo_alto}" href="#modal_registro" data-toggle="modal">Crear una cuenta</a>
             </li>
           </ul>
         </div>
       </div>
     </div>
   </div>
-</header>
+  <!-- Encabezado -->
+  <header class="container-fluid mb-3">
+    <div class="container">
+      <div class="row" id="intestazione">
+        <!-- Logo -->
+        <div class="col-lg-3 col-md-3 col-sm-2 col-xs-12" id="logo">
+          <a (click)="goHome()" style="cursor: pointer;">
+            <img [src]="immagine_logo" class="img-fluid">
+          </a>
+        </div>
+        <!-- Buscador y categorias -->
+        <div class="col-lg-6 col-md-6 col-sm-8 col-xs-12">
+          <div class="row">
+            <!-- Boton Categorias -->
+            <div (click)="showCategorias()" class="col-lg-4 col-md-4 col-sm-4 col-xs-12"
+              [ngStyle]="{'background-color': colore_sfondo, 'color': colore_testo}" id="btn_categorie">
+              <p>
+                Categorias
+                <span class="float-right">
+                  <fa-icon [icon]="faBars"></fa-icon>
+                </span>
+              </p>
+            </div>
+            <!-- Categorias -->
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"
+              [ngStyle]="{'background-color': colore_nascosto, 'color': colore_testo}" style="display: none;"
+              id="categorie" *ngIf="!categorie_normale">
+              <div class="row">
+                <div *ngFor="let categoria of categorie" class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
+                  <h4>
+                    <a [ngStyle]="{'background-color': colore_sfondo, 'color': colore_testo}"
+                      (click)="searchByCategorie(categoria.rotta)" class="pixel--categories">
+                      {{categoria.nome}}
+                    </a>
+                  </h4>
+                  <hr>
+                  <ul>
+                    <li *ngFor="let sottocategoria of categoria.sottocategorie">
+                      <a [ngStyle]="{'background-color': colore_sfondo, 'color': colore_testo}"
+                        (click)="searchByCategorie(categoria.rotta + '/' + sottocategoria.rotta)"
+                        class="pixel-subcategories">
+                        {{sottocategoria.nome}}
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- Buscador -->
+            <div class="input-group col-lg-8 col-md-8 col-sm-8 col-xs-12" id="cercatore">
+              <input type="search" name="buscar" class="form-control" placeholder="Buscar...">
+              <span class="input-group-btn">
+                <a href="#">
+                  <button class="btn btn-default" [ngStyle]="{'background-color': colore_sfondo, 'color': colore_testo}"
+                    type="submit">
+                    <fa-icon [icon]="faSearch"></fa-icon>
+                  </button>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+        <!-- Carrito -->
+        <div class="col-lg-3 col-md-3 col-sm-2 col-xs-12" id="carrito">
+          <a href="#">
+            <button class="btn btn-default float-left"
+              [ngStyle]="{'background-color': colore_sfondo, 'color': colore_testo}">
+              <fa-icon [icon]="faShoppingCart"></fa-icon>
+            </button>
+          </a>
+          <p>TU CESTA
+            <span class="basket--quantity"></span>
+            <br>
+            USD $ <span class="basket--sum"></span>
+          </p>
+        </div>
+      </div>
+      <!-- Categorias -->
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"
+        [ngStyle]="{'background-color': colore_nascosto, 'color': colore_testo}" style="display: none;" id="categorie"
+        *ngIf="categorie_normale">
+        <div class="row">
+          <div *ngFor="let categoria of categorie" class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
+            <h4>
+              <a [ngStyle]="{'background-color': colore_sfondo, 'color': colore_testo}"
+                (click)="searchByCategorie(categoria.rotta)" class="pixel--categories">
+                {{categoria.nome}}
+              </a>
+            </h4>
+            <hr>
+            <ul>
+              <li *ngFor="let sottocategoria of categoria.sottocategorie">
+                <a [ngStyle]="{'background-color': colore_sfondo, 'color': colore_testo}"
+                  (click)="searchByCategorie(categoria.rotta + '/' + sottocategoria.rotta)" class="pixel-subcategories">
+                  {{sottocategoria.nome}}
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+</ng-template>

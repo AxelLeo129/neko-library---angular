@@ -1,26 +1,54 @@
-<div class="container-fluid animate__animated animate__fadeIn animate__delay-1s" id="diapositiva" *ngIf="cursore.length > 0">
-  <div class="row" id="cursore">
-    <ngb-carousel [interval]="5000" [pauseOnHover]="true">
-      <ng-template ngbSlide *ngFor="let cursor of cursore">
-        <img [src]="cursor.immagine_sfondo" alt="Random first slide" class="w-100">
-        <div class="slide--options" [ngClass]="cursor.tipo">
-          <img class="product--img animate__animated animate__slideInDown" [ngStyle]="cursor.stile_immagine" [src]="cursor.immagine_prodotto" alt="">
-          <div class="slide--text" [ngStyle]="cursor.stile_testo">
-            <h1 class="animate__animated animate__fadeIn animate__delay-1s" [ngStyle]="{'color': cursor.titolo1?.color}">{{cursor.titolo1?.testo}}</h1>
-            <h2 class="animate__animated animate__fadeIn animate__delay-1s" [ngStyle]="{'color': cursor.titolo2?.color}">{{cursor.titolo2?.testo}}</h2>
-            <h3 class="animate__animated animate__fadeIn animate__delay-1s" [ngStyle]="{'color': cursor.titolo3?.color}">{{cursor.titolo3?.testo}}</h3>
-            <a class="e2e-inner-html-bound" (click)="goToRoute(cursor.url)" [innerHTML]="cursor.pulsante">
-            </a>
-          </div>
-        </div>
-      </ng-template>
-    </ngb-carousel>
-  </div>
-  <div class="row">
-    <div class="col-12" style="display: flex; justify-content: center;">
-      <button (click)="hideSlide()" id="boton_slide" class="btn btn-info back--color">
-        <fa-icon [icon]="faAngle"></fa-icon>
-      </button>
+<ng-container *ngIf="!caricato; else cargado">
+  <div class="container-fluid" id="diapositiva"
+    *ngIf="cursore.length > 0">
+    <div class="row" id="cursore">
+      <ngb-carousel>
+        <ng-template ngbSlide>
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/neko-library.appspot.com/o/slide%2Fback_default.jpg?alt=media&token=d12ba168-bcad-40f6-b51d-71dbac93fd48"
+            alt="Random first slide" class="w-100">
+        </ng-template>
+      </ngb-carousel>
+    </div>
+    <div class="row">
+      <div class="col-12" style="display: flex; justify-content: center;">
+        <button (click)="hideSlide()" id="boton_slide" class="btn btn-info back--color">
+          <fa-icon [icon]="faAngle"></fa-icon>
+        </button>
+      </div>
     </div>
   </div>
-</div>
+</ng-container>
+<ng-template #cargado>
+  <div class="container-fluid animate__animated animate__fadeIn animate__delay-1s" id="diapositiva"
+    *ngIf="cursore.length > 0">
+    <div class="row" id="cursore">
+      <ngb-carousel [interval]="5000" [pauseOnHover]="true">
+        <ng-template ngbSlide *ngFor="let cursor of cursore">
+          <img [src]="cursor.immagine_sfondo" alt="Random first slide" class="w-100">
+          <div class="slide--options" [ngClass]="cursor.tipo">
+            <img class="product--img animate__animated animate__slideInDown" [ngStyle]="cursor.stile_immagine"
+              [src]="cursor.immagine_prodotto" alt="">
+            <div class="slide--text" [ngStyle]="cursor.stile_testo">
+              <h1 class="animate__animated animate__fadeIn animate__delay-1s"
+                [ngStyle]="{'color': cursor.titolo1?.color}">{{cursor.titolo1?.testo}}</h1>
+              <h2 class="animate__animated animate__fadeIn animate__delay-1s"
+                [ngStyle]="{'color': cursor.titolo2?.color}">{{cursor.titolo2?.testo}}</h2>
+              <h3 class="animate__animated animate__fadeIn animate__delay-1s"
+                [ngStyle]="{'color': cursor.titolo3?.color}">{{cursor.titolo3?.testo}}</h3>
+              <a class="e2e-inner-html-bound" (click)="goToRoute(cursor.url)" [innerHTML]="cursor.pulsante">
+              </a>
+            </div>
+          </div>
+        </ng-template>
+      </ngb-carousel>
+    </div>
+    <div class="row">
+      <div class="col-12" style="display: flex; justify-content: center;">
+        <button (click)="hideSlide()" id="boton_slide" class="btn btn-info back--color">
+          <fa-icon [icon]="faAngle"></fa-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</ng-template>

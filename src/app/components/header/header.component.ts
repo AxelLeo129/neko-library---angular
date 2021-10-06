@@ -23,8 +23,8 @@ export class HeaderComponent implements OnInit {
   public barra_alto: string;
   public testo_alto: string;
   public immagine_logo: string;
-
   public categorie: Array<any>;
+  public caricato: boolean = true;
 
   @HostListener('window:resize') doSomething() {
     this.categorie_normale = window.innerWidth <= 767 ? false : true;
@@ -40,6 +40,7 @@ export class HeaderComponent implements OnInit {
   }
 
   getTemplateStructure(): void {
+    this.caricato = true;
     this.general_service.get('template').then((response: any) => {
       this.social_networks = JSON.parse(response.social_networks);
       this.colore_sfondo = response.colore_sfondo;
@@ -47,6 +48,7 @@ export class HeaderComponent implements OnInit {
       this.barra_alto = response.barra_alto;
       this.testo_alto = response.testo_alto;
       this.immagine_logo = response.logo;
+      this.caricato = false;
     }).catch(err => console.log(err));
   }
 

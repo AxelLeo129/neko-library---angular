@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: "app-root",
@@ -7,16 +6,9 @@ import { NgxSpinnerService } from "ngx-spinner";
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent implements OnInit {
-  constructor(private spinner: NgxSpinnerService) {}
+  constructor() {}
 
   ngOnInit(): void {
-    const loaded = sessionStorage.getItem("loaded");
-    if (!loaded) {
-      this.spinner.show();
-      sessionStorage.setItem("loaded", JSON.stringify(true));
-      setTimeout(() => {
-        this.spinner.hide();
-      }, 3000);
-    }
+    
   }
 }
