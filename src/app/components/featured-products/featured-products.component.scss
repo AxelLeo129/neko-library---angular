@@ -6,7 +6,6 @@
 .banner {
   position: relative;
   overflow: hidden;
-  height: 260px;
 }
 
 .banner .banner--text {
@@ -107,13 +106,13 @@
 }
 
 .products ul li h1 small {
-    text-transform: uppercase;
-    font-size: 20px;
-    font-weight: 700;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .products ul li h1 small a {
-    color: #777;
+  color: #777;
 }
 
 .offer--badge {
@@ -126,4 +125,99 @@
   text-decoration: line-through;
   color: #ccc;
   font-size: 15px;
+}
+
+/* Escritorio grande */
+@media (min-width: 1200px) {
+  .banner {
+    height: 260px;
+  }
+}
+
+/* Escritorio mediano o tablet horizontal */
+@media (max-width: 1199px) and (min-width: 992px) {
+  .banner {
+    height: 260px;
+  }
+
+}
+
+/* Escritorio pequeño o tablet vertical */
+@media (max-width: 991px) and (min-width: 768px) {
+  .banner {
+    height: 180px;
+  }
+
+  .banner--text h1 {
+    font-size: 30px;
+    line-height: 15px;
+  }
+
+  .banner--text h2 {
+    font-size: 25px;
+    line-height: 15px;
+  }
+
+  .banner--text h3 {
+    font-size: 25px;
+    line-height: 15px;
+  }
+
+  .banner .right--text,
+  .banner .center--text,
+  .banner .left--text {
+    top: 35px;
+  }
+
+}
+
+/* Movil */
+@media (max-width: 767px) {
+  .banner {
+    height: 100px;
+  }
+
+  .banner .right--text,
+  .banner .center--text,
+  .banner .left--text {
+    top: 25px;
+    left: 50%;
+    width: 800px;
+    margin-left: -400px;
+    text-align: center;
+    text-shadow: 2px 2px 20px black;
+  }
+
+  .banner--text h1 {
+    font-size: 20px;
+    line-height: 5px;
+  }
+
+  .banner--text h2 {
+    font-size: 20px;
+    line-height: 5px;
+  }
+
+  .banner--text h3 {
+    font-size: 15px;
+    line-height: 5px;
+  }
+
+  .feature--title {
+    text-align: center;
+  }
+
+  .feature--title button {
+    position: absolute;
+    left: 50%;
+    width: 40%;
+    margin-left: -20%;
+  }
+
+  .products ul li h1 small {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
 }
