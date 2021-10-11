@@ -14,10 +14,15 @@ export class FeaturedProductsComponent implements OnInit {
   public faHeart = faHeart;
   public faEye = faEye;
   public faShoppingCart = faShoppingCart;
+  public articoli_design = ['griglia', 'griglia', 'griglia'];
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  changeDesign(articolo: number, design: string): void {
+    this.articoli_design[articolo] = design;
   }
 
 }
