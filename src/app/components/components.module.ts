@@ -5,14 +5,17 @@ import { LoaderComponent } from './loader/loader.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { SkeletonComponent } from './skeleton/skeleton.component';
+import { ScrollUpComponent } from './scroll-up/scroll-up.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
-  declarations: [LoaderComponent, NotFoundComponent, SkeletonComponent],
-  exports: [LoaderComponent, NotFoundComponent, SkeletonComponent],
+  declarations: [LoaderComponent, NotFoundComponent, SkeletonComponent, ScrollUpComponent],
+  exports: [LoaderComponent, NotFoundComponent, SkeletonComponent, ScrollUpComponent],
   imports: [
     CommonModule,
     NgxSpinnerModule,
-    NgxSkeletonLoaderModule
+    NgxSkeletonLoaderModule,
+    FontAwesomeModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
