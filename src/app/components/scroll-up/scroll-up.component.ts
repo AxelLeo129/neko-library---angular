@@ -10,7 +10,7 @@ import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
 export class ScrollUpComponent {
 
   public faChevronUp = faChevronUp;
-  public windowScrolled: boolean;
+  public finestra_scorreva: boolean;
 
   constructor(@Inject(DOCUMENT) private document: Document) {}
 
@@ -21,22 +21,22 @@ export class ScrollUpComponent {
       document.documentElement.scrollTop ||
       document.body.scrollTop > 100
     ) {
-      this.windowScrolled = true;
+      this.finestra_scorreva = true;
     } else if (
-      (this.windowScrolled && window.pageYOffset) ||
+      (this.finestra_scorreva && window.pageYOffset) ||
       document.documentElement.scrollTop ||
       document.body.scrollTop < 10
     ) {
-      this.windowScrolled = false;
+      this.finestra_scorreva = false;
     }
   }
   scrollToTop() {
     (function smoothscroll() {
-      var currentScroll =
+      let scorrimento_corrente =
         document.documentElement.scrollTop || document.body.scrollTop;
-      if (currentScroll > 0) {
+      if (scorrimento_corrente > 0) {
         window.requestAnimationFrame(smoothscroll);
-        window.scrollTo(0, currentScroll - currentScroll / 8);
+        window.scrollTo(0, scorrimento_corrente - scorrimento_corrente / 8);
       }
     })();
   }

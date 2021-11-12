@@ -16,11 +16,11 @@
                 <div class="card bg-light">
                     <div class="card-body">
                         <div class="btn-group float-right">
-                            <button type="button" [ngClass]="articoli_design[0] == 'griglia' ? 'btn-info' : 'btn-default'" class="btn  btn--grid" (click)="changeDesign(0, 'griglia')">
+                            <button type="button" [ngClass]="prodotti[0]['design'] == 'griglia' ? 'btn-info' : 'btn-default'" class="btn  btn--grid" (click)="changeDesign(0, 'griglia')">
                                 <fa-icon [icon]="faTh"></fa-icon>
                                 <span class="col-xs-0 float-right">GRID</span>
                             </button>
-                            <button type="button" [ngClass]="articoli_design[0] == 'lista' ? 'btn-info' : 'btn-default'" class="btn btn--list" (click)="changeDesign(0, 'lista')">
+                            <button type="button" [ngClass]="prodotti[0]['design'] == 'lista' ? 'btn-info' : 'btn-default'" class="btn btn--list" (click)="changeDesign(0, 'lista')">
                                 <fa-icon [icon]="faList"></fa-icon>
                                 <span class="col-xs-0 float-right">LIST</span>
                             </button>
@@ -51,7 +51,7 @@
         </div>
         <hr class="mb-5">
         <!-- Vitrina productos en cuadricula -->
-        <ul class="grid--0 row" *ngIf="articoli_design[0] == 'griglia'">
+        <ul class="grid--0 row" *ngIf="prodotti[0]['design'] == 'griglia'">
             <!-- Producto 1 -->
             <li class="col-md-3 col-sm-6 col-xs-12">
                 <figure>
@@ -202,7 +202,7 @@
             </li>
         </ul>
         <!-- Vitrina productos en lista -->
-        <ul class="list--0 row mb-3" *ngIf="articoli_design[0] == 'lista'">
+        <ul class="list--0 row mb-3" *ngIf="prodotti[0]['design'] == 'lista'">
             <li class="col-xs-12 col-md-12">
                 <div class="row">
                     <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
@@ -288,11 +288,11 @@
                 <div class="card bg-light">
                     <div class="card-body">
                         <div class="btn-group float-right">
-                            <button type="button" [ngClass]="articoli_design[1] == 'griglia' ? 'btn-info' : 'btn-default'" class="btn btn--grid" (click)="changeDesign(1, 'griglia')">
+                            <button type="button" [ngClass]="prodotti[1]['design'] == 'griglia' ? 'btn-info' : 'btn-default'" class="btn btn--grid" (click)="changeDesign(1, 'griglia')">
                                 <fa-icon [icon]="faTh"></fa-icon>
                                 <span class="col-xs-0 float-right">GRID</span>
                             </button>
-                            <button type="button" [ngClass]="articoli_design[1] == 'lista' ? 'btn-info' : 'btn-default'" class="btn btn--list" (click)="changeDesign(1, 'lista')">
+                            <button type="button" [ngClass]="prodotti[1]['design'] == 'lista' ? 'btn-info' : 'btn-default'" class="btn btn--list" (click)="changeDesign(1, 'lista')">
                                 <fa-icon [icon]="faList"></fa-icon>
                                 <span class="col-xs-0 float-right">LIST</span>
                             </button>
@@ -323,7 +323,7 @@
         </div>
         <hr>
         <!-- Vitrina productos en cuadricula -->
-        <ul class="grid--0 row" *ngIf="articoli_design[1] == 'griglia'">
+        <ul class="grid--0 row" *ngIf="prodotti[1]['design'] == 'griglia'">
             <!-- Producto 1 -->
             <li class="col-md-3 col-sm-6 col-xs-12">
                 <figure>
@@ -490,11 +490,11 @@
                 <div class="card bg-light">
                     <div class="card-body">
                         <div class="btn-group float-right">
-                            <button type="button" [ngClass]="articoli_design[2] == 'griglia' ? 'btn-info' : 'btn-default'" class="btn btn--grid" (click)="changeDesign(2, 'griglia')">
+                            <button type="button" [ngClass]="prodotti[2]['design'] == 'griglia' ? 'btn-info' : 'btn-default'" class="btn btn--grid" (click)="changeDesign(2, 'griglia')">
                                 <fa-icon [icon]="faTh"></fa-icon>
                                 <span class="col-xs-0 float-right">GRID</span>
                             </button>
-                            <button type="button" [ngClass]="articoli_design[2] == 'lista' ? 'btn-info' : 'btn-default'" class="btn btn--list" (click)="changeDesign(2, 'lista')">
+                            <button type="button" [ngClass]="prodotti[2]['design'] == 'lista' ? 'btn-info' : 'btn-default'" class="btn btn--list" (click)="changeDesign(2, 'lista')">
                                 <fa-icon [icon]="faList"></fa-icon>
                                 <span class="col-xs-0 float-right">LIST</span>
                             </button>
@@ -525,7 +525,7 @@
         </div>
         <hr>
         <!-- Vitrina productos en cuadricula -->
-        <ul class="grid--0 row" *ngIf="articoli_design[2] == 'griglia'">
+        <ul class="grid--0 row" *ngIf="prodotti[2]['design'] == 'griglia'">
             <!-- Producto 1 -->
             <li class="col-md-3 col-sm-6 col-xs-12">
                 <figure>
