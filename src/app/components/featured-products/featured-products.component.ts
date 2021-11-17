@@ -27,21 +27,30 @@ export class FeaturedProductsComponent implements OnInit {
       chiave: 'prodotti_gratuiti',
       ordinato_da: 'id',
       design: 'griglia',
-      titolo: 'ARTÍCULOS DESTACADOS'
+      titolo: 'ARTÍCULOS DESTACADOS',
+      url: 'articulos-gratis',
+      campo_ricerca: 'prezzo',
+      valore_ricerca: 0
     }, 
     {
       dati: [],
       chiave: 'piu_venduto',
       ordinato_da: 'vendite',
       design: 'griglia',
-      titolo: 'ARTÍCULOS MÁS VENDIDOS'
+      titolo: 'ARTÍCULOS MÁS VENDIDOS',
+      url: 'lo-mas-vendido',
+      campo_ricerca: null,
+      valore_ricerca: null
     },
     {
       dati: [],
       chiave: 'piu_visti',
       ordinato_da: 'visualizzazioni',
       design: 'griglia',
-      titolo: 'ARTÍCULOS MÁS VISTOS'
+      titolo: 'ARTÍCULOS MÁS VISTOS',
+      url: 'lo-mas-visto',
+      campo_ricerca: null,
+      valore_ricerca: null
     },
   ];
 
@@ -54,8 +63,11 @@ export class FeaturedProductsComponent implements OnInit {
   }
 
   getProducts(tipo_prodotto: number) {
+    let url = `products?order_by=${this.prodotti[tipo_prodotto]['ordinato_da']}`;
+    if(this.prodotti[tipo_prodotto]['campo_ricerca'])
+      url += `&search_field=${this.prodotti[tipo_prodotto]['campo_ricerca']}&search_value=${this.prodotti[tipo_prodotto]['valore_ricerca']}`;
     this.generalService
-      .get(`products?order_by=${this.prodotti[tipo_prodotto]['ordinato_da']}`)
+      .get(url)
       .then((response) => {
         this.prodotti[tipo_prodotto]['dati'] = response.data;
         console.log(this.prodotti[tipo_prodotto]['dati']);

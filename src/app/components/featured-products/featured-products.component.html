@@ -9,276 +9,125 @@
     </div>
 </figure>
 <!-- Productos gratis -->
-<div class="container-fluid products--bar">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-md-12 organization--products">
-                <div class="card bg-light">
-                    <div class="card-body">
-                        <div class="btn-group float-right">
-                            <button type="button" [ngClass]="prodotti[0]['design'] == 'griglia' ? 'btn-info' : 'btn-default'" class="btn  btn--grid" (click)="changeDesign(0, 'griglia')">
-                                <fa-icon [icon]="faTh"></fa-icon>
-                                <span class="col-xs-0 float-right">GRID</span>
-                            </button>
-                            <button type="button" [ngClass]="prodotti[0]['design'] == 'lista' ? 'btn-info' : 'btn-default'" class="btn btn--list" (click)="changeDesign(0, 'lista')">
-                                <fa-icon [icon]="faList"></fa-icon>
-                                <span class="col-xs-0 float-right">LIST</span>
-                            </button>
+<ng-container *ngFor="let tipo of prodotti; index as i">
+    <div class="container-fluid products--bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-12 organization--products">
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <div class="btn-group float-right">
+                                <button type="button"
+                                    [ngClass]="tipo['design'] == 'griglia' ? 'btn-info' : 'btn-default'"
+                                    class="btn  btn--grid" (click)="changeDesign(i, 'griglia')">
+                                    <fa-icon [icon]="faTh"></fa-icon>
+                                    <span class="col-xs-0 float-right">GRID</span>
+                                </button>
+                                <button type="button" [ngClass]="tipo['design'] == 'lista' ? 'btn-info' : 'btn-default'"
+                                    class="btn btn--list" (click)="changeDesign(i, 'lista')">
+                                    <fa-icon [icon]="faList"></fa-icon>
+                                    <span class="col-xs-0 float-right">LIST</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- Vitrina productos gratis -->
-<div class="container-fluid products mt-3">
-    <div class="container">
-        <div class="row feature--title">
-            <!-- Barra titulo -->
-            <div class="col-sm-6 col-xs-12">
-                <h1>
-                    <small>ARTÍCULOS DESTACADOS</small>
-                </h1>
-            </div>
-            <div class="col-sm-6 col-xs-12">
-                <a routerLink="/articulos-gratis">
-                    <button class="btn btn-info back--color float-right">
-                        VER MÁS <fa-icon [icon]="faChevronRight"></fa-icon>
-                    </button>
-                </a>
-            </div>
-        </div>
-        <hr class="mb-5">
-        <!-- Vitrina productos en cuadricula -->
-        <ul class="grid--0 row" *ngIf="prodotti[0]['design'] == 'griglia'">
-            <!-- Producto 1 -->
-            <li class="col-md-3 col-sm-6 col-xs-12">
-                <figure>
-                    <a routerLink="#" class="pixel--product">
-                        <img src="https://firebasestorage.googleapis.com/v0/b/neko-library.appspot.com/o/products%2Faccesorio04.jpg?alt=media&token=4557c7cd-440e-4575-bf3c-3b61704a5861"
-                            class="img-fluid">
-                    </a>
-                </figure>
-                <h4>
-                    <small>
-                        <a href="" class="pixel--product">
-                            COLLAR DE DIAMANTES <br>
-                        </a>
-                    </small>
-                </h4>
-                <div class="row">
-                    <div class="col-md-6 col-xs-6 price">
-                        <h2>
-                            <small>GRATIS</small>
-                        </h2>
-                    </div>
-                    <div class="col-md-6 col-xs-6 links">
-                        <div class="btn-group float-right">
-                            <button type="button" class="btn btn-default btn-xs wishes" placement="top"
-                                ngbTooltip="Agregar a favoritos">
-                                <fa-icon [icon]="faHeart"></fa-icon>
-                            </button>
-                            <a routerLink="#" class="pixel--product">
-                                <button type="button" class="btn btn-default btn-xs wishes" placement="top"
-                                    ngbTooltip="Ver producto">
-                                    <fa-icon [icon]="faEye"></fa-icon>
-                                </button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <!-- Producto 2 -->
-            <li class="col-md-3 col-sm-6 col-xs-12">
-                <figure>
-                    <a routerLink="#" class="pixel--product">
-                        <img src="https://firebasestorage.googleapis.com/v0/b/neko-library.appspot.com/o/products%2Faccesorio03.jpg?alt=media&token=d90b84e3-1066-4487-b17a-77e10b5a5e2d"
-                            class="img-fluid">
-                    </a>
-                </figure>
-                <h4>
-                    <small>
-                        <a href="" class="pixel--product">
-                            BOLSO DEPORTIVO GRIS <br>
-                        </a>
-                    </small>
-                </h4>
-                <div class="row">
-                    <div class="col-md-6 col-xs-6 price">
-                        <h2>
-                            <small>GRATIS</small>
-                        </h2>
-                    </div>
-                    <div class="col-md-6 col-xs-6 links">
-                        <div class="btn-group float-right">
-                            <button type="button" class="btn btn-default btn-xs wishes" placement="top"
-                                ngbTooltip="Agregar a favoritos">
-                                <fa-icon [icon]="faHeart"></fa-icon>
-                            </button>
-                            <a routerLink="#" class="pixel--product">
-                                <button type="button" class="btn btn-default btn-xs wishes" placement="top"
-                                    ngbTooltip="Ver producto">
-                                    <fa-icon [icon]="faEye"></fa-icon>
-                                </button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <!-- Producto 3 -->
-            <li class="col-md-3 col-sm-6 col-xs-12">
-                <figure>
-                    <a routerLink="#" class="pixel--product">
-                        <img src="https://firebasestorage.googleapis.com/v0/b/neko-library.appspot.com/o/products%2Faccesorio02.jpg?alt=media&token=ee6f7879-49ba-47d9-8fdf-1c3d9cf7b742"
-                            class="img-fluid">
-                    </a>
-                </figure>
-                <h4>
-                    <small>
-                        <a href="" class="pixel--product">
-                            BOLSO MILITAR <br>
-                        </a>
-                    </small>
-                </h4>
-                <div class="row">
-                    <div class="col-md-6 col-xs-6 price">
-                        <h2>
-                            <small>GRATIS</small>
-                        </h2>
-                    </div>
-                    <div class="col-md-6 col-xs-6 links">
-                        <div class="btn-group float-right">
-                            <button type="button" class="btn btn-default btn-xs wishes" placement="top"
-                                ngbTooltip="Agregar a favoritos">
-                                <fa-icon [icon]="faHeart"></fa-icon>
-                            </button>
-                            <a routerLink="#" class="pixel--product">
-                                <button type="button" class="btn btn-default btn-xs wishes" placement="top"
-                                    ngbTooltip="Ver producto">
-                                    <fa-icon [icon]="faEye"></fa-icon>
-                                </button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <!-- Producto 4 -->
-            <li class="col-md-3 col-sm-6 col-xs-12">
-                <figure>
-                    <a routerLink="#" class="pixel--product">
-                        <img src="https://firebasestorage.googleapis.com/v0/b/neko-library.appspot.com/o/products%2Faccesorio01.jpg?alt=media&token=1a243146-7200-4631-9000-34a284c9e2c0"
-                            class="img-fluid">
-                    </a>
-                </figure>
-                <h4>
-                    <small>
-                        <a href="" class="pixel--product">
-                            PULSERA DE DIAMANTES <br>
-                        </a>
-                    </small>
-                </h4>
-                <div class="row">
-                    <div class="col-md-6 col-xs-6 price">
-                        <h2>
-                            <small>GRATIS</small>
-                        </h2>
-                    </div>
-                    <div class="col-md-6 col-xs-6 links">
-                        <div class="btn-group float-right">
-                            <button type="button" class="btn btn-default btn-xs wishes" placement="top"
-                                ngbTooltip="Agregar a favoritos">
-                                <fa-icon [icon]="faHeart"></fa-icon>
-                            </button>
-                            <a routerLink="#" class="pixel--product">
-                                <button type="button" class="btn btn-default btn-xs wishes" placement="top"
-                                    ngbTooltip="Ver producto">
-                                    <fa-icon [icon]="faEye"></fa-icon>
-                                </button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </li>
-        </ul>
-        <!-- Vitrina productos en lista -->
-        <ul class="list--0 row mb-3" *ngIf="prodotti[0]['design'] == 'lista'">
-            <li class="col-xs-12 col-md-12">
-                <div class="row">
-                    <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
-                        <figure>
-                            <a routerLink="#" class="pixel--product">
-                                <img src="https://firebasestorage.googleapis.com/v0/b/neko-library.appspot.com/o/products%2Faccesorio04.jpg?alt=media&token=4557c7cd-440e-4575-bf3c-3b61704a5861"
-                                    class="img-fluid">
-                            </a>
-                        </figure>
-                    </div>
-                    <div class="col-lg-10 col-md-7 col-sm-8 col-xs-12">
-                        <h1>
-                            <small>
-                                <a routerLink="#" class="pixel--product">COLLAR DE DIAMANTES</a>
-                            </small>
-                        </h1>
-                        <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
-                            aspernatur ad ducimus dignissimos tempora! Veniam officiis aspernatur eum corporis
-                            quibusdam, molestias similique placeat aut ipsum ea temporibus rem impedit sapiente.</p>
-                        <h2><small>GRATIS</small></h2>
-                        <div class="btn-group float-left">
-                            <button type="button" class="btn btn-default btn-xs wishes" placement="top"
-                                ngbTooltip="Agregar a favoritos">
-                                <fa-icon [icon]="faHeart"></fa-icon>
-                            </button>
-                            <a routerLink="#" class="pixel--product">
-                                <button type="button" class="btn btn-default btn-xs wishes" placement="top"
-                                    ngbTooltip="Ver producto">
-                                    <fa-icon [icon]="faEye"></fa-icon>
-                                </button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-            </li>
 
-            <li class="col-xs-12 col-md-12">
-                <div class="row">
-                    <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
-                        <figure>
-                            <a routerLink="#" class="pixel--product">
-                                <img src="https://firebasestorage.googleapis.com/v0/b/neko-library.appspot.com/o/products%2Fropa04.jpg?alt=media&token=62b0baee-f96d-4e79-b82d-5f2a5d32a5c3"
-                                    class="img-fluid">
+    <div class="container-fluid products mt-3">
+        <div class="container">
+            <div class="row feature--title">
+                <div class="col-sm-6 col-xs-12">
+                    <h1>
+                        <small>{{tipo.titolo}}</small>
+                    </h1>
+                </div>
+                <div class="col-sm-6 col-xs-12">
+                    <a [routerLink]="tipo.url">
+                        <button class="btn btn-info back--color float-right">
+                            VER MÁS <fa-icon [icon]="faChevronRight"></fa-icon>
+                        </button>
+                    </a>
+                </div>
+            </div>
+            <hr class="mb-5">
+            <ul class="grid--0 row" *ngIf="tipo['design'] == 'griglia'">
+                <li class="col-md-3 col-sm-6 col-xs-12" *ngFor="let prodotto of tipo.dati">
+                    <figure>
+                        <a [routerLink]="prodotto.rotta" class="pixel--product">
+                            <img [src]="prodotto.copertina" class="img-fluid">
+                        </a>
+                    </figure>
+                    <h4>
+                        <small>
+                            <a [routerLink]="prodotto.rotta" class="pixel--product">
+                                {{prodotto.titolo}} <br>
                             </a>
-                        </figure>
-                    </div>
-                    <div class="col-lg-10 col-md-7 col-sm-8 col-xs-12">
-                        <h1>
-                            <small>
-                                <a routerLink="#" class="pixel--product">COLLAR DE DIAMANTES</a>
-                            </small>
-                        </h1>
-                        <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
-                            aspernatur ad ducimus dignissimos tempora! Veniam officiis aspernatur eum corporis
-                            quibusdam, molestias similique placeat aut ipsum ea temporibus rem impedit sapiente.</p>
-                        <h2><small>GRATIS</small></h2>
-                        <div class="btn-group float-left">
-                            <button type="button" class="btn btn-default btn-xs wishes" placement="top"
-                                ngbTooltip="Agregar a favoritos">
-                                <fa-icon [icon]="faHeart"></fa-icon>
-                            </button>
-                            <a routerLink="#" class="pixel--product">
+                        </small>
+                    </h4>
+                    <div class="row">
+                        <div class="col-md-6 col-xs-6 price">
+                            <h2>
+                                <small>GRATIS</small>
+                            </h2>
+                        </div>
+                        <div class="col-md-6 col-xs-6 links">
+                            <div class="btn-group float-right">
                                 <button type="button" class="btn btn-default btn-xs wishes" placement="top"
-                                    ngbTooltip="Ver producto">
-                                    <fa-icon [icon]="faEye"></fa-icon>
+                                    ngbTooltip="Agregar a favoritos">
+                                    <fa-icon [icon]="faHeart"></fa-icon>
                                 </button>
-                            </a>
+                                <a routerLink="#" class="pixel--product">
+                                    <button type="button" class="btn btn-default btn-xs wishes" placement="top"
+                                        ngbTooltip="Ver producto">
+                                        <fa-icon [icon]="faEye"></fa-icon>
+                                    </button>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <hr>
-            </li>
-        </ul>
+                </li>
+            </ul>
+            <ul class="list--0 row mb-3" *ngIf="tipo['design'] == 'lista'">
+                <li class="col-xs-12 col-md-12" *ngFor="let prodotto of tipo.dati">
+                    <div class="row">
+                        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
+                            <figure>
+                                <a [routerLink]="prodotto.rotta" class="pixel--product">
+                                    <img [src]="prodotto.copertina" class="img-fluid">
+                                </a>
+                            </figure>
+                        </div>
+                        <div class="col-lg-10 col-md-7 col-sm-8 col-xs-12">
+                            <h1>
+                                <small>
+                                    <a routerLink="#" class="pixel--product">{{prodotto.titolo}}</a>
+                                </small>
+                            </h1>
+                            <p class="text-muted">{{prodotto.descripzione}}</p>
+                            <h2><small>GRATIS</small></h2>
+                            <div class="btn-group float-left">
+                                <button type="button" class="btn btn-default btn-xs wishes" placement="top"
+                                    ngbTooltip="Agregar a favoritos">
+                                    <fa-icon [icon]="faHeart"></fa-icon>
+                                </button>
+                                <a routerLink="#" class="pixel--product">
+                                    <button type="button" class="btn btn-default btn-xs wishes" placement="top"
+                                        ngbTooltip="Ver producto">
+                                        <fa-icon [icon]="faEye"></fa-icon>
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                </li>
+            </ul>
+        </div>
     </div>
-</div>
+</ng-container>
 
 <!-- Productos más vendidos -->
 <div class="container-fluid products--bar">
@@ -288,11 +137,15 @@
                 <div class="card bg-light">
                     <div class="card-body">
                         <div class="btn-group float-right">
-                            <button type="button" [ngClass]="prodotti[1]['design'] == 'griglia' ? 'btn-info' : 'btn-default'" class="btn btn--grid" (click)="changeDesign(1, 'griglia')">
+                            <button type="button"
+                                [ngClass]="prodotti[1]['design'] == 'griglia' ? 'btn-info' : 'btn-default'"
+                                class="btn btn--grid" (click)="changeDesign(1, 'griglia')">
                                 <fa-icon [icon]="faTh"></fa-icon>
                                 <span class="col-xs-0 float-right">GRID</span>
                             </button>
-                            <button type="button" [ngClass]="prodotti[1]['design'] == 'lista' ? 'btn-info' : 'btn-default'" class="btn btn--list" (click)="changeDesign(1, 'lista')">
+                            <button type="button"
+                                [ngClass]="prodotti[1]['design'] == 'lista' ? 'btn-info' : 'btn-default'"
+                                class="btn btn--list" (click)="changeDesign(1, 'lista')">
                                 <fa-icon [icon]="faList"></fa-icon>
                                 <span class="col-xs-0 float-right">LIST</span>
                             </button>
@@ -490,11 +343,15 @@
                 <div class="card bg-light">
                     <div class="card-body">
                         <div class="btn-group float-right">
-                            <button type="button" [ngClass]="prodotti[2]['design'] == 'griglia' ? 'btn-info' : 'btn-default'" class="btn btn--grid" (click)="changeDesign(2, 'griglia')">
+                            <button type="button"
+                                [ngClass]="prodotti[2]['design'] == 'griglia' ? 'btn-info' : 'btn-default'"
+                                class="btn btn--grid" (click)="changeDesign(2, 'griglia')">
                                 <fa-icon [icon]="faTh"></fa-icon>
                                 <span class="col-xs-0 float-right">GRID</span>
                             </button>
-                            <button type="button" [ngClass]="prodotti[2]['design'] == 'lista' ? 'btn-info' : 'btn-default'" class="btn btn--list" (click)="changeDesign(2, 'lista')">
+                            <button type="button"
+                                [ngClass]="prodotti[2]['design'] == 'lista' ? 'btn-info' : 'btn-default'"
+                                class="btn btn--list" (click)="changeDesign(2, 'lista')">
                                 <fa-icon [icon]="faList"></fa-icon>
                                 <span class="col-xs-0 float-right">LIST</span>
                             </button>
