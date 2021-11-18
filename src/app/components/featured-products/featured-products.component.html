@@ -64,14 +64,35 @@
                         <small>
                             <a [routerLink]="prodotto.rotta" class="pixel--product">
                                 {{prodotto.titolo}} <br>
+                                <ng-container *ngIf="prodotto.nuovo != 0">
+                                    <span class="badge badge-warning offer--badge">NUEVO</span>
+                                </ng-container>
+                                <ng-container *ngIf="prodotto.offerta != 0">
+                                    <span class="badge badge-warning offer--badge">{{prodotto.sconto_offerta}}%
+                                        OFF</span>
+                                </ng-container>
                             </a>
                         </small>
                     </h4>
                     <div class="row">
                         <div class="col-md-6 col-xs-6 price">
-                            <h2>
-                                <small>GRATIS</small>
-                            </h2>
+                            <ng-container *ngIf="prodotto.prezzo == 0; else con_prezzo">
+                                <h2>
+                                    <small>GRATIS</small>
+                                </h2>
+                            </ng-container>
+                            <ng-template #con_prezzo>
+                                <ng-container *ngIf="prodotto.offerta != 0; else senza_offerta">
+                                    <h2><small><strong class="offer">USD ${{prodotto.prezzo}}</strong>
+                                            ${{prodotto.prezzo_offerta}}</small>
+                                    </h2>
+                                </ng-container>
+                                <ng-template #senza_offerta>
+                                    <h2>
+                                        <small>USD ${{prodotto.prezzo}}</small>
+                                    </h2>
+                                </ng-template>
+                            </ng-template>
                         </div>
                         <div class="col-md-6 col-xs-6 links">
                             <div class="btn-group float-right">
@@ -79,6 +100,12 @@
                                     ngbTooltip="Agregar a favoritos">
                                     <fa-icon [icon]="faHeart"></fa-icon>
                                 </button>
+                                <ng-container *ngIf="prodotto.tipo == 'virtual'">
+                                    <button type="button" class="btn btn-default btn-xs wishes" placement="top"
+                                        ngbTooltip="Agregar al carrito">
+                                        <fa-icon [icon]="faShoppingCart"></fa-icon>
+                                    </button>
+                                </ng-container>
                                 <a routerLink="#" class="pixel--product">
                                     <button type="button" class="btn btn-default btn-xs wishes" placement="top"
                                         ngbTooltip="Ver producto">
