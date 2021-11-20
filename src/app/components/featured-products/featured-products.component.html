@@ -130,16 +130,45 @@
                         <div class="col-lg-10 col-md-7 col-sm-8 col-xs-12">
                             <h1>
                                 <small>
-                                    <a routerLink="#" class="pixel--product">{{prodotto.titolo}}</a>
+                                    <a routerLink="#" class="pixel--product">{{prodotto.titolo}}</a><br>
+                                    <ng-container *ngIf="prodotto.nuovo != 0">
+                                        <span class="badge badge-warning offer--badge">NUEVO</span>
+                                    </ng-container>
+                                    <ng-container *ngIf="prodotto.offerta != 0">
+                                        <span class="badge badge-warning offer--badge">{{prodotto.sconto_offerta}}%
+                                            OFF</span>
+                                    </ng-container>
                                 </small>
                             </h1>
                             <p class="text-muted">{{prodotto.descripzione}}</p>
-                            <h2><small>GRATIS</small></h2>
+                            <ng-container *ngIf="prodotto.prezzo == 0; else con_prezzo">
+                                <h2>
+                                    <small>GRATIS</small>
+                                </h2>
+                            </ng-container>
+                            <ng-template #con_prezzo>
+                                <ng-container *ngIf="prodotto.offerta != 0; else senza_offerta">
+                                    <h2><small><strong class="offer">USD ${{prodotto.prezzo}}</strong>
+                                            ${{prodotto.prezzo_offerta}}</small>
+                                    </h2>
+                                </ng-container>
+                                <ng-template #senza_offerta>
+                                    <h2>
+                                        <small>USD ${{prodotto.prezzo}}</small>
+                                    </h2>
+                                </ng-template>
+                            </ng-template>
                             <div class="btn-group float-left">
                                 <button type="button" class="btn btn-default btn-xs wishes" placement="top"
                                     ngbTooltip="Agregar a favoritos">
                                     <fa-icon [icon]="faHeart"></fa-icon>
                                 </button>
+                                <ng-container *ngIf="prodotto.tipo == 'virtual'">
+                                    <button type="button" class="btn btn-default btn-xs wishes" placement="top"
+                                        ngbTooltip="Agregar al carrito">
+                                        <fa-icon [icon]="faShoppingCart"></fa-icon>
+                                    </button>
+                                </ng-container>
                                 <a routerLink="#" class="pixel--product">
                                     <button type="button" class="btn btn-default btn-xs wishes" placement="top"
                                         ngbTooltip="Ver producto">
@@ -155,430 +184,3 @@
         </div>
     </div>
 </ng-container>
-
-<!-- Productos más vendidos -->
-<div class="container-fluid products--bar">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-md-12 organization--products">
-                <div class="card bg-light">
-                    <div class="card-body">
-                        <div class="btn-group float-right">
-                            <button type="button"
-                                [ngClass]="prodotti[1]['design'] == 'griglia' ? 'btn-info' : 'btn-default'"
-                                class="btn btn--grid" (click)="changeDesign(1, 'griglia')">
-                                <fa-icon [icon]="faTh"></fa-icon>
-                                <span class="col-xs-0 float-right">GRID</span>
-                            </button>
-                            <button type="button"
-                                [ngClass]="prodotti[1]['design'] == 'lista' ? 'btn-info' : 'btn-default'"
-                                class="btn btn--list" (click)="changeDesign(1, 'lista')">
-                                <fa-icon [icon]="faList"></fa-icon>
-                                <span class="col-xs-0 float-right">LIST</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Vitrina productos más vendidos -->
-<div class="container-fluid products mt-3">
-    <div class="container">
-        <div class="row feature--title">
-            <!-- Barra titulo -->
-            <div class="col-sm-6 col-xs-12">
-                <h1>
-                    <small>ARTÍCULOS MÁS VENDIDOS</small>
-                </h1>
-            </div>
-            <div class="col-sm-6 col-xs-12">
-                <a routerLink="/articulos-gratis">
-                    <button class="btn btn-info back--color float-right">
-                        VER MÁS <fa-icon [icon]="faChevronRight"></fa-icon>
-                    </button>
-                </a>
-            </div>
-        </div>
-        <hr>
-        <!-- Vitrina productos en cuadricula -->
-        <ul class="grid--0 row" *ngIf="prodotti[1]['design'] == 'griglia'">
-            <!-- Producto 1 -->
-            <li class="col-md-3 col-sm-6 col-xs-12">
-                <figure>
-                    <a routerLink="#" class="pixel--product">
-                        <img src="https://firebasestorage.googleapis.com/v0/b/neko-library.appspot.com/o/products%2Fropa03.jpg?alt=media&token=652b521f-de23-4dc1-90aa-bf4b793b1e85"
-                            class="img-fluid">
-                    </a>
-                </figure>
-                <h4>
-                    <small>
-                        <a href="" class="pixel--product">
-                            FALDA DE FLORES <br>
-                            <span class="badge badge-warning offer--badge">NUEVO</span>
-                            <span class="badge badge-warning offer--badge">40% OFF</span>
-                        </a>
-                    </small>
-                </h4>
-                <div class="row">
-                    <div class="col-md-6 col-xs-6 price">
-                        <h2>
-                            <small><strong class="offer">USD $29</strong> $11</small>
-                        </h2>
-                    </div>
-                    <div class="col-md-6 col-xs-6 links">
-                        <div class="btn-group float-right">
-                            <button type="button" class="btn btn-default btn-xs wishes" placement="top"
-                                ngbTooltip="Agregar a favoritos">
-                                <fa-icon [icon]="faHeart"></fa-icon>
-                            </button>
-                            <a routerLink="#" class="pixel--product">
-                                <button type="button" class="btn btn-default btn-xs wishes" placement="top"
-                                    ngbTooltip="Ver producto">
-                                    <fa-icon [icon]="faEye"></fa-icon>
-                                </button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <!-- Producto 2 -->
-            <li class="col-md-3 col-sm-6 col-xs-12">
-                <figure>
-                    <a routerLink="#" class="pixel--product">
-                        <img src="https://firebasestorage.googleapis.com/v0/b/neko-library.appspot.com/o/products%2Fropa04.jpg?alt=media&token=62b0baee-f96d-4e79-b82d-5f2a5d32a5c3"
-                            class="img-fluid">
-                    </a>
-                </figure>
-                <h4>
-                    <small>
-                        <a href="" class="pixel--product">
-                            VESTIDO JEAN <br>
-                            <span class="badge badge-warning offer--badge">40% OFF</span>
-                        </a>
-                    </small>
-                </h4>
-                <div class="row">
-                    <div class="col-md-6 col-xs-6 price">
-                        <h2>
-                            <small><strong class="offer">USD $29</strong> $11</small>
-                        </h2>
-                    </div>
-                    <div class="col-md-6 col-xs-6 links">
-                        <div class="btn-group float-right">
-                            <button type="button" class="btn btn-default btn-xs wishes" placement="top"
-                                ngbTooltip="Agregar a favoritos">
-                                <fa-icon [icon]="faHeart"></fa-icon>
-                            </button>
-                            <a routerLink="#" class="pixel--product">
-                                <button type="button" class="btn btn-default btn-xs wishes" placement="top"
-                                    ngbTooltip="Ver producto">
-                                    <fa-icon [icon]="faEye"></fa-icon>
-                                </button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <!-- Producto 3 -->
-            <li class="col-md-3 col-sm-6 col-xs-12">
-                <figure>
-                    <a routerLink="#" class="pixel--product">
-                        <img src="https://firebasestorage.googleapis.com/v0/b/neko-library.appspot.com/o/products%2Fropa02.jpg?alt=media&token=3649674d-dc66-4922-8e8c-a82e440aa24f"
-                            class="img-fluid">
-                    </a>
-                </figure>
-                <h4>
-                    <small>
-                        <a href="" class="pixel--product">
-                            VESTIDO CLÁSICO <br>
-                            <span class="badge badge-warning offer--badge">40% OFF</span>
-                        </a>
-                    </small>
-                </h4>
-                <div class="row">
-                    <div class="col-md-6 col-xs-6 price">
-                        <h2>
-                            <small><strong class="offer">USD $29</strong> $11</small>
-                        </h2>
-                    </div>
-                    <div class="col-md-6 col-xs-6 links">
-                        <div class="btn-group float-right">
-                            <button type="button" class="btn btn-default btn-xs wishes" placement="top"
-                                ngbTooltip="Agregar a favoritos">
-                                <fa-icon [icon]="faHeart"></fa-icon>
-                            </button>
-                            <a routerLink="#" class="pixel--product">
-                                <button type="button" class="btn btn-default btn-xs wishes" placement="top"
-                                    ngbTooltip="Ver producto">
-                                    <fa-icon [icon]="faEye"></fa-icon>
-                                </button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <!-- Producto 4 -->
-            <li class="col-md-3 col-sm-6 col-xs-12">
-                <figure>
-                    <a routerLink="#" class="pixel--product">
-                        <img src="https://firebasestorage.googleapis.com/v0/b/neko-library.appspot.com/o/products%2Fropa06.jpg?alt=media&token=556010d0-045b-4038-af07-17d2de03899c"
-                            class="img-fluid">
-                    </a>
-                </figure>
-                <h4>
-                    <small>
-                        <a href="" class="pixel--product">
-                            TOP DAMA <br>
-                            <br>
-                        </a>
-                    </small>
-                </h4>
-                <div class="row">
-                    <div class="col-md-6 col-xs-6 price">
-                        <h2>
-                            <small>USD $29</small>
-                        </h2>
-                    </div>
-                    <div class="col-md-6 col-xs-6 links">
-                        <div class="btn-group float-right">
-                            <button type="button" class="btn btn-default btn-xs wishes" placement="top"
-                                ngbTooltip="Agregar a favoritos">
-                                <fa-icon [icon]="faHeart"></fa-icon>
-                            </button>
-                            <a routerLink="#" class="pixel--product">
-                                <button type="button" class="btn btn-default btn-xs wishes" placement="top"
-                                    ngbTooltip="Ver producto">
-                                    <fa-icon [icon]="faEye"></fa-icon>
-                                </button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div>
-
-</div>
-
-<!-- Productos más vistos -->
-<div class="container-fluid products--bar">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-md-12 organization--products">
-                <div class="card bg-light">
-                    <div class="card-body">
-                        <div class="btn-group float-right">
-                            <button type="button"
-                                [ngClass]="prodotti[2]['design'] == 'griglia' ? 'btn-info' : 'btn-default'"
-                                class="btn btn--grid" (click)="changeDesign(2, 'griglia')">
-                                <fa-icon [icon]="faTh"></fa-icon>
-                                <span class="col-xs-0 float-right">GRID</span>
-                            </button>
-                            <button type="button"
-                                [ngClass]="prodotti[2]['design'] == 'lista' ? 'btn-info' : 'btn-default'"
-                                class="btn btn--list" (click)="changeDesign(2, 'lista')">
-                                <fa-icon [icon]="faList"></fa-icon>
-                                <span class="col-xs-0 float-right">LIST</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Vitrina productos más vistos -->
-<div class="container-fluid products mt-3">
-    <div class="container">
-        <div class="row feature--title">
-            <!-- Barra titulo -->
-            <div class="col-sm-6 col-xs-12">
-                <h1>
-                    <small>ARTÍCULOS MÁS VISTOS</small>
-                </h1>
-            </div>
-            <div class="col-sm-6 col-xs-12">
-                <a routerLink="/articulos-gratis">
-                    <button class="btn btn-info back--color float-right">
-                        VER MÁS <fa-icon [icon]="faChevronRight"></fa-icon>
-                    </button>
-                </a>
-            </div>
-        </div>
-        <hr>
-        <!-- Vitrina productos en cuadricula -->
-        <ul class="grid--0 row" *ngIf="prodotti[2]['design'] == 'griglia'">
-            <!-- Producto 1 -->
-            <li class="col-md-3 col-sm-6 col-xs-12">
-                <figure>
-                    <a routerLink="#" class="pixel--product">
-                        <img src="https://firebasestorage.googleapis.com/v0/b/neko-library.appspot.com/o/products%2Fcurso05.jpg?alt=media&token=07e4a5c3-309d-4e3e-8ffc-74a28aa98561"
-                            class="img-fluid">
-                    </a>
-                </figure>
-                <h4>
-                    <small>
-                        <a href="" class="pixel--product">
-                            CURSO DE BOOTSTRAP <br>
-                            <span class="badge badge-warning offer--badge">90% OFF</span>
-                        </a>
-                    </small>
-                </h4>
-                <div class="row">
-                    <div class="col-md-6 col-xs-6 price">
-                        <h2>
-                            <small><strong class="offer">USD $100</strong> $10</small>
-                        </h2>
-                    </div>
-                    <div class="col-md-6 col-xs-6 links">
-                        <div class="btn-group float-right">
-                            <button type="button" class="btn btn-default btn-xs wishes" placement="top"
-                                ngbTooltip="Agregar a favoritos">
-                                <fa-icon [icon]="faHeart"></fa-icon>
-                            </button>
-                            <button type="button" class="btn btn-default btn-xs wishes" placement="top"
-                                ngbTooltip="Agregar al carrito">
-                                <fa-icon [icon]="faShoppingCart"></fa-icon>
-                            </button>
-                            <a routerLink="#" class="pixel--product">
-                                <button type="button" class="btn btn-default btn-xs wishes" placement="top"
-                                    ngbTooltip="Ver producto">
-                                    <fa-icon [icon]="faEye"></fa-icon>
-                                </button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <!-- Producto 2 -->
-            <li class="col-md-3 col-sm-6 col-xs-12">
-                <figure>
-                    <a routerLink="#" class="pixel--product">
-                        <img src="https://firebasestorage.googleapis.com/v0/b/neko-library.appspot.com/o/products%2Fcurso04.jpg?alt=media&token=ac029e8f-a831-4fbf-920b-5f7ef4d3e5c5"
-                            class="img-fluid">
-                    </a>
-                </figure>
-                <h4>
-                    <small>
-                        <a href="" class="pixel--product">
-                            CURSO DE CANVAS Y JAVASCRIPT <br>
-                            <span class="badge badge-warning offer--badge">90% OFF</span>
-                        </a>
-                    </small>
-                </h4>
-                <div class="row">
-                    <div class="col-md-6 col-xs-6 price">
-                        <h2>
-                            <small><strong class="offer">USD $100</strong> $10</small>
-                        </h2>
-                    </div>
-                    <div class="col-md-6 col-xs-6 links">
-                        <div class="btn-group float-right">
-                            <button type="button" class="btn btn-default btn-xs wishes" placement="top"
-                                ngbTooltip="Agregar a favoritos">
-                                <fa-icon [icon]="faHeart"></fa-icon>
-                            </button>
-                            <button type="button" class="btn btn-default btn-xs wishes" placement="top"
-                                ngbTooltip="Agregar al carrito">
-                                <fa-icon [icon]="faShoppingCart"></fa-icon>
-                            </button>
-                            <a routerLink="#" class="pixel--product">
-                                <button type="button" class="btn btn-default btn-xs wishes" placement="top"
-                                    ngbTooltip="Ver producto">
-                                    <fa-icon [icon]="faEye"></fa-icon>
-                                </button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <!-- Producto 3 -->
-            <li class="col-md-3 col-sm-6 col-xs-12">
-                <figure>
-                    <a routerLink="#" class="pixel--product">
-                        <img src="https://firebasestorage.googleapis.com/v0/b/neko-library.appspot.com/o/products%2Fcurso02.jpg?alt=media&token=9eb20ff9-1d23-4370-beb3-337038ad8cdd"
-                            class="img-fluid">
-                    </a>
-                </figure>
-                <h4>
-                    <small>
-                        <a href="" class="pixel--product">
-                            CURSO DE JAVASCRIPT DESDE 0 <br>
-                            <span class="badge badge-warning offer--badge">90% OFF</span>
-                        </a>
-                    </small>
-                </h4>
-                <div class="row">
-                    <div class="col-md-6 col-xs-6 price">
-                        <h2>
-                            <small><strong class="offer">USD $100</strong> $10</small>
-                        </h2>
-                    </div>
-                    <div class="col-md-6 col-xs-6 links">
-                        <div class="btn-group float-right">
-                            <button type="button" class="btn btn-default btn-xs wishes" placement="top"
-                                ngbTooltip="Agregar a favoritos">
-                                <fa-icon [icon]="faHeart"></fa-icon>
-                            </button>
-                            <button type="button" class="btn btn-default btn-xs wishes" placement="top"
-                                ngbTooltip="Agregar al carrito">
-                                <fa-icon [icon]="faShoppingCart"></fa-icon>
-                            </button>
-                            <a routerLink="#" class="pixel--product">
-                                <button type="button" class="btn btn-default btn-xs wishes" placement="top"
-                                    ngbTooltip="Ver producto">
-                                    <fa-icon [icon]="faEye"></fa-icon>
-                                </button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <!-- Producto 4 -->
-            <li class="col-md-3 col-sm-6 col-xs-12">
-                <figure>
-                    <a routerLink="#" class="pixel--product">
-                        <img src="https://firebasestorage.googleapis.com/v0/b/neko-library.appspot.com/o/products%2Fcurso03.jpg?alt=media&token=2c8e4ade-a521-4713-af73-240c64fa7309"
-                            class="img-fluid">
-                    </a>
-                </figure>
-                <h4>
-                    <small>
-                        <a href="" class="pixel--product">
-                            CURSO DE JQUERY <br>
-                            <span class="badge badge-warning offer--badge">90% OFF</span>
-                        </a>
-                    </small>
-                </h4>
-                <div class="row">
-                    <div class="col-md-6 col-xs-6 price">
-                        <h2>
-                            <small><strong class="offer">USD $100</strong> $10</small>
-                        </h2>
-                    </div>
-                    <div class="col-md-6 col-xs-6 links">
-                        <div class="btn-group float-right">
-                            <button type="button" class="btn btn-default btn-xs wishes" placement="top"
-                                ngbTooltip="Agregar a favoritos">
-                                <fa-icon [icon]="faHeart"></fa-icon>
-                            </button>
-                            <button type="button" class="btn btn-default btn-xs wishes" placement="top"
-                                ngbTooltip="Agregar al carrito">
-                                <fa-icon [icon]="faShoppingCart"></fa-icon>
-                            </button>
-                            <a routerLink="#" class="pixel--product">
-                                <button type="button" class="btn btn-default btn-xs wishes" placement="top"
-                                    ngbTooltip="Ver producto">
-                                    <fa-icon [icon]="faEye"></fa-icon>
-                                </button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div>
-
-</div>
