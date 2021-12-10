@@ -11,20 +11,19 @@ import { Subscription } from 'rxjs';
 })
 export class ProductComponent implements OnInit, OnDestroy {
 
-  public categoria_subcategoria_encontrada: boolean = false;
-  public ruta_categoria: string;
-  public cargando: boolean = true;
-  private suscripcion_ruta: Subscription;
+  public categoria_sottocategoria_trovata: boolean = false;
+  public scaricando: boolean = true;
+  private sottoscrizione_rotta: Subscription;
 
   constructor(private spinner: NgxSpinnerService, private router: Router, private route: ActivatedRoute, private general_service: GeneralService) { }
 
   ngOnInit(): void {
-    this.cargando = true;
+    this.scaricando = true;
     this.spinner.show();
     this.getRoute();
-    this.suscripcion_ruta = this.router.events.subscribe((event: Event) => {
+    this.sottoscrizione_rotta = this.router.events.subscribe((event: Event) => {
       if(event instanceof NavigationEnd) {
-        this.cargando = true;
+        this.scaricando = true;
         this.spinner.show();
         this.getRoute();
       }
@@ -32,27 +31,27 @@ export class ProductComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if(this.suscripcion_ruta)
-      this.suscripcion_ruta.unsubscribe();
+    if(this.sottoscrizione_rotta)
+      this.sottoscrizione_rotta.unsubscribe();
   }
 
   async getRoute() {
-    const ruta_categoria: string = this.route.snapshot.params.categoria;
-    const ruta_subcategoria: string = this.route.snapshot.params.subcategoria;
-    if (ruta_categoria) {
-      const categoria_respuesta = await this.general_service.get('verificar-categoria/' + ruta_categoria);
-      if (categoria_respuesta.mensaje != "No encontrada") {
-        this.categoria_subcategoria_encontrada = true;
-        if (ruta_subcategoria) {
-          const subcategoria_respuesta = await this.general_service.get('verificar-subcategoria/' + ruta_subcategoria);
-          if (subcategoria_respuesta.mensaje == "No encontrada") {
-            this.categoria_subcategoria_encontrada = false;
+    const rottta_categoria: string = this.route.snapshot.params.categoria;
+    const rotta_sottocategoria: string = this.route.snapshot.params.sottocategoria;
+    if (rottta_categoria) {
+      const categoria_risposta = await this.general_service.get('verificar-categoria/' + rottta_categoria);
+      if (categoria_risposta.mensaje != "No encontrada") {
+        this.categoria_sottocategoria_trovata = true;
+        if (rotta_sottocategoria) {
+          const sottocategoria_risposta = await this.general_service.get('verificar-subcategoria/' + rotta_sottocategoria);
+          if (sottocategoria_risposta.mensaje == "No encontrada") {
+            this.categoria_sottocategoria_trovata = false;
           }
         }
       }
     }
     this.spinner.hide();
-    this.cargando = false;
+    this.scaricando = false;
   }
 
 }

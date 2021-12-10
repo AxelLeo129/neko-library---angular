@@ -1,9 +1,9 @@
 <div style="position: relative; min-height: 25%;">
-    <ng-container *ngIf="scaricando; else cargado">
+    <ng-container *ngIf="cargando; else cargado">
         <app-loader [pantalla_completa]="false"></app-loader>
     </ng-container>
     <ng-template #cargado>
-        <ng-container *ngIf="categoria_sottocategoria_trovata == true; else not_found">
+        <ng-container *ngIf="prodotto_trovato == true; else not_found">
             <p>Producto</p>
         </ng-container>
         <ng-template #not_found>

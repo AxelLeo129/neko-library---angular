@@ -13,11 +13,15 @@ const routes: Routes = [{
     loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule)
   },
   {
+    path: 'product/:prodotto',
+    loadChildren: () => import('./pages/product-details/product-details.module').then(m => m.ProductDetailsModule)
+  },
+  {
     path: ':categoria',
     loadChildren: () => import('./pages/product/product.module').then(m => m.ProductModule)
   },
   {
-    path: ':categoria/:subcategoria',
+    path: ':categoria/:sottocategoria',
     loadChildren: () => import('./pages/product/product.module').then(m => m.ProductModule)
   },
   {
