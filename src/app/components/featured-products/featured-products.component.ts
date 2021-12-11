@@ -63,14 +63,13 @@ export class FeaturedProductsComponent implements OnInit {
   }
 
   getProducts(tipo_prodotto: number) {
-    let url = `products?order_by=${this.prodotti[tipo_prodotto]['ordinato_da']}`;
+    let url = `products?order_by=${this.prodotti[tipo_prodotto]['ordinato_da']}&limit=4`;
     if(this.prodotti[tipo_prodotto]['campo_ricerca'])
       url += `&search_field=${this.prodotti[tipo_prodotto]['campo_ricerca']}&search_value=${this.prodotti[tipo_prodotto]['valore_ricerca']}`;
     this.generalService
       .get(url)
       .then((response) => {
         this.prodotti[tipo_prodotto]['dati'] = response.data;
-        console.log(this.prodotti[tipo_prodotto]['dati']);
       })
       .catch((err) => console.log(err));
   }
