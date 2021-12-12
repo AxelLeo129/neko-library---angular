@@ -1,2 +1,5 @@
 <app-slider></app-slider>
-<app-featured-products></app-featured-products>
+<app-banner></app-banner>
+<ng-container *ngFor="let prodotto of prodotti">
+    <app-featured-products [prodotto]="prodotto"></app-featured-products>
+</ng-container>

@@ -1,51 +1,53 @@
-<!-- Banner -->
-<figure class="banner mt-3">
-    <img src="https://firebasestorage.googleapis.com/v0/b/neko-library.appspot.com/o/banner%2Fdefault.jpg?alt=media&token=6202dc4a-b631-4f01-b2bc-ab300b8fdc0a"
-        class="img-fluid" width="100%">
-    <div class="banner--text right--text">
-        <h1 style="color: #fff;">OFERTAS ESPECIALES</h1>
-        <h2 style="color: #fff;"><strong>50% off</strong></h2>
-        <h3 style="color: #fff;">Termina el 31 de octubre</h3>
-    </div>
-</figure>
-<!-- Productos gratis -->
-<ng-container *ngFor="let tipo of prodotti; index as i">
-    <div class="container-fluid products--bar">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-md-12 organization--products">
-                    <div class="card bg-light">
-                        <div class="card-body">
-                            <div class="btn-group float-right">
-                                <button type="button"
-                                    [ngClass]="tipo['design'] == 'griglia' ? 'btn-info' : 'btn-default'"
-                                    class="btn  btn--grid" (click)="changeDesign(i, 'griglia')">
-                                    <fa-icon [icon]="faTh"></fa-icon>
-                                    <span class="col-xs-0 float-right">GRID</span>
-                                </button>
-                                <button type="button" [ngClass]="tipo['design'] == 'lista' ? 'btn-info' : 'btn-default'"
-                                    class="btn btn--list" (click)="changeDesign(i, 'lista')">
-                                    <fa-icon [icon]="faList"></fa-icon>
-                                    <span class="col-xs-0 float-right">LIST</span>
-                                </button>
-                            </div>
+<div class="container-fluid products--bar">
+    <div class="container">
+        <div class="card bg-light">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-6 col-xs-12 col-md-6">
+                        <form *ngIf="prodotto['opzioni']">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Ordenar productos</mat-label>
+                                <mat-select [(ngModel)]="prodotto['ordinato_da']" name="food">
+                                    <mat-option *ngFor="let opzione of prodotto['opzioni']" [value]="opzione.valore">
+                                        {{opzione.vista}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </form>
+                    </div>
+                    <div class="col-sm-6 col-xs-12 col-md-6 organization--products">
+
+                        <div class="btn-group float-right">
+                            <button type="button"
+                                [ngClass]="prodotto['design'] == 'griglia' ? 'btn-info' : 'btn-default'"
+                                class="btn  btn--grid" (click)="changeDesign('griglia')">
+                                <fa-icon [icon]="faTh"></fa-icon>
+                                <span class="col-xs-0 float-right">GRID</span>
+                            </button>
+                            <button type="button" [ngClass]="prodotto['design'] == 'lista' ? 'btn-info' : 'btn-default'"
+                                class="btn btn--list" (click)="changeDesign('lista')">
+                                <fa-icon [icon]="faList"></fa-icon>
+                                <span class="col-xs-0 float-right">LIST</span>
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <div class="container-fluid products mt-3">
-        <div class="container">
+<div class="container-fluid products mt-3">
+    <div class="container">
+        <ng-containter *ngIf="prodotto.url">
             <div class="row feature--title">
                 <div class="col-sm-6 col-xs-12">
                     <h1>
-                        <small>{{tipo.titolo}}</small>
+                        <small>{{prodotto.titolo}}</small>
                     </h1>
                 </div>
                 <div class="col-sm-6 col-xs-12">
-                    <a [routerLink]="tipo.url">
+                    <a [routerLink]="prodotto.url">
                         <button class="btn btn-info back--color float-right">
                             VER MÁS <fa-icon [icon]="faChevronRight"></fa-icon>
                         </button>
@@ -53,134 +55,135 @@
                 </div>
             </div>
             <hr class="mb-5">
-            <ul class="grid--0 row" *ngIf="tipo['design'] == 'griglia'">
-                <li class="col-md-3 col-sm-6 col-xs-12" *ngFor="let prodotto of tipo.dati">
-                    <figure>
-                        <a [routerLink]="'/product/' + prodotto.rotta" class="pixel--product">
-                            <img [src]="prodotto.copertina" class="img-fluid">
+        </ng-containter>
+        <ul class="grid--0 row" *ngIf="prodotto['design'] == 'griglia'">
+            <li class="col-md-3 col-sm-6 col-xs-12" *ngFor="let pro of prodotto.dati">
+                <figure>
+                    <a [routerLink]="'/product/' + pro.rotta" class="pixel--product">
+                        <img [src]="pro.copertina" class="img-fluid">
+                    </a>
+                </figure>
+                <h4>
+                    <small>
+                        <a [routerLink]="'/product/' + pro.rotta" class="pixel--product">
+                            {{pro.titolo}} <br>
+                            <ng-container *ngIf="pro.nuovo != 0">
+                                <span class="badge badge-warning offer--badge">NUEVO</span>
+                            </ng-container>
+                            <ng-container *ngIf="pro.offerta != 0">
+                                <span class="badge badge-warning offer--badge">{{pro.sconto_offerta}}%
+                                    OFF</span>
+                            </ng-container>
                         </a>
-                    </figure>
-                    <h4>
-                        <small>
-                            <a [routerLink]="'/product/' + prodotto.rotta" class="pixel--product">
-                                {{prodotto.titolo}} <br>
-                                <ng-container *ngIf="prodotto.nuovo != 0">
+                    </small>
+                </h4>
+                <div class="row">
+                    <div class="col-md-6 col-xs-6 price">
+                        <ng-container *ngIf="pro.prezzo == 0; else con_prezzo">
+                            <h2>
+                                <small>GRATIS</small>
+                            </h2>
+                        </ng-container>
+                        <ng-template #con_prezzo>
+                            <ng-container *ngIf="pro.offerta != 0; else senza_offerta">
+                                <h2><small><strong class="offer">USD ${{pro.prezzo}}</strong>
+                                        ${{pro.prezzo_offerta}}</small>
+                                </h2>
+                            </ng-container>
+                            <ng-template #senza_offerta>
+                                <h2>
+                                    <small>USD ${{pro.prezzo}}</small>
+                                </h2>
+                            </ng-template>
+                        </ng-template>
+                    </div>
+                    <div class="col-md-6 col-xs-6 links">
+                        <div class="btn-group float-right">
+                            <button type="button" class="btn btn-default btn-xs wishes" placement="top"
+                                ngbTooltip="Agregar a favoritos">
+                                <fa-icon [icon]="faHeart"></fa-icon>
+                            </button>
+                            <ng-container *ngIf="pro.prodotto == 'virtual'">
+                                <button type="button" class="btn btn-default btn-xs wishes" placement="top"
+                                    ngbTooltip="Agregar al carrito">
+                                    <fa-icon [icon]="faShoppingCart"></fa-icon>
+                                </button>
+                            </ng-container>
+                            <a routerLink="#" class="pixel--product">
+                                <button type="button" class="btn btn-default btn-xs wishes" placement="top"
+                                    ngbTooltip="Ver producto">
+                                    <fa-icon [icon]="faEye"></fa-icon>
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <ul class="list--0 row mb-3" *ngIf="prodotto['design'] == 'lista'">
+            <li class="col-xs-12 col-md-12" *ngFor="let prod of prodotto.dati">
+                <div class="row">
+                    <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
+                        <figure>
+                            <a [routerLink]="'/product/' +  prod.rotta" class="pixel--product">
+                                <img [src]="prod.copertina" class="img-fluid">
+                            </a>
+                        </figure>
+                    </div>
+                    <div class="col-lg-10 col-md-7 col-sm-8 col-xs-12">
+                        <h1>
+                            <small>
+                                <a [routerLink]="'/product/' +  prod.rotta"
+                                    class="pixel--product">{{prod.titolo}}</a><br>
+                                <ng-container *ngIf="prod.nuovo != 0">
                                     <span class="badge badge-warning offer--badge">NUEVO</span>
                                 </ng-container>
-                                <ng-container *ngIf="prodotto.offerta != 0">
-                                    <span class="badge badge-warning offer--badge">{{prodotto.sconto_offerta}}%
+                                <ng-container *ngIf="prod.offerta != 0">
+                                    <span class="badge badge-warning offer--badge">{{prod.sconto_offerta}}%
                                         OFF</span>
                                 </ng-container>
+                            </small>
+                        </h1>
+                        <p class="text-muted">{{prod.descripzione}}</p>
+                        <ng-container *ngIf="prod.prezzo == 0; else con_prezzo">
+                            <h2>
+                                <small>GRATIS</small>
+                            </h2>
+                        </ng-container>
+                        <ng-template #con_prezzo>
+                            <ng-container *ngIf="prod.offerta != 0; else senza_offerta">
+                                <h2><small><strong class="offer">USD ${{prod.prezzo}}</strong>
+                                        ${{prod.prezzo_offerta}}</small>
+                                </h2>
+                            </ng-container>
+                            <ng-template #senza_offerta>
+                                <h2>
+                                    <small>USD ${{prod.prezzo}}</small>
+                                </h2>
+                            </ng-template>
+                        </ng-template>
+                        <div class="btn-group float-left">
+                            <button type="button" class="btn btn-default btn-xs wishes" placement="top"
+                                ngbTooltip="Agregar a favoritos">
+                                <fa-icon [icon]="faHeart"></fa-icon>
+                            </button>
+                            <ng-container *ngIf="prod.prodotto == 'virtual'">
+                                <button type="button" class="btn btn-default btn-xs wishes" placement="top"
+                                    ngbTooltip="Agregar al carrito">
+                                    <fa-icon [icon]="faShoppingCart"></fa-icon>
+                                </button>
+                            </ng-container>
+                            <a routerLink="#" class="pixel--product">
+                                <button type="button" class="btn btn-default btn-xs wishes" placement="top"
+                                    ngbTooltip="Ver producto">
+                                    <fa-icon [icon]="faEye"></fa-icon>
+                                </button>
                             </a>
-                        </small>
-                    </h4>
-                    <div class="row">
-                        <div class="col-md-6 col-xs-6 price">
-                            <ng-container *ngIf="prodotto.prezzo == 0; else con_prezzo">
-                                <h2>
-                                    <small>GRATIS</small>
-                                </h2>
-                            </ng-container>
-                            <ng-template #con_prezzo>
-                                <ng-container *ngIf="prodotto.offerta != 0; else senza_offerta">
-                                    <h2><small><strong class="offer">USD ${{prodotto.prezzo}}</strong>
-                                            ${{prodotto.prezzo_offerta}}</small>
-                                    </h2>
-                                </ng-container>
-                                <ng-template #senza_offerta>
-                                    <h2>
-                                        <small>USD ${{prodotto.prezzo}}</small>
-                                    </h2>
-                                </ng-template>
-                            </ng-template>
-                        </div>
-                        <div class="col-md-6 col-xs-6 links">
-                            <div class="btn-group float-right">
-                                <button type="button" class="btn btn-default btn-xs wishes" placement="top"
-                                    ngbTooltip="Agregar a favoritos">
-                                    <fa-icon [icon]="faHeart"></fa-icon>
-                                </button>
-                                <ng-container *ngIf="prodotto.tipo == 'virtual'">
-                                    <button type="button" class="btn btn-default btn-xs wishes" placement="top"
-                                        ngbTooltip="Agregar al carrito">
-                                        <fa-icon [icon]="faShoppingCart"></fa-icon>
-                                    </button>
-                                </ng-container>
-                                <a routerLink="#" class="pixel--product">
-                                    <button type="button" class="btn btn-default btn-xs wishes" placement="top"
-                                        ngbTooltip="Ver producto">
-                                        <fa-icon [icon]="faEye"></fa-icon>
-                                    </button>
-                                </a>
-                            </div>
                         </div>
                     </div>
-                </li>
-            </ul>
-            <ul class="list--0 row mb-3" *ngIf="tipo['design'] == 'lista'">
-                <li class="col-xs-12 col-md-12" *ngFor="let prodotto of tipo.dati">
-                    <div class="row">
-                        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
-                            <figure>
-                                <a [routerLink]="'/product/' +  prodotto.rotta" class="pixel--product">
-                                    <img [src]="prodotto.copertina" class="img-fluid">
-                                </a>
-                            </figure>
-                        </div>
-                        <div class="col-lg-10 col-md-7 col-sm-8 col-xs-12">
-                            <h1>
-                                <small>
-                                    <a [routerLink]="'/product/' +  prodotto.rotta" class="pixel--product">{{prodotto.titolo}}</a><br>
-                                    <ng-container *ngIf="prodotto.nuovo != 0">
-                                        <span class="badge badge-warning offer--badge">NUEVO</span>
-                                    </ng-container>
-                                    <ng-container *ngIf="prodotto.offerta != 0">
-                                        <span class="badge badge-warning offer--badge">{{prodotto.sconto_offerta}}%
-                                            OFF</span>
-                                    </ng-container>
-                                </small>
-                            </h1>
-                            <p class="text-muted">{{prodotto.descripzione}}</p>
-                            <ng-container *ngIf="prodotto.prezzo == 0; else con_prezzo">
-                                <h2>
-                                    <small>GRATIS</small>
-                                </h2>
-                            </ng-container>
-                            <ng-template #con_prezzo>
-                                <ng-container *ngIf="prodotto.offerta != 0; else senza_offerta">
-                                    <h2><small><strong class="offer">USD ${{prodotto.prezzo}}</strong>
-                                            ${{prodotto.prezzo_offerta}}</small>
-                                    </h2>
-                                </ng-container>
-                                <ng-template #senza_offerta>
-                                    <h2>
-                                        <small>USD ${{prodotto.prezzo}}</small>
-                                    </h2>
-                                </ng-template>
-                            </ng-template>
-                            <div class="btn-group float-left">
-                                <button type="button" class="btn btn-default btn-xs wishes" placement="top"
-                                    ngbTooltip="Agregar a favoritos">
-                                    <fa-icon [icon]="faHeart"></fa-icon>
-                                </button>
-                                <ng-container *ngIf="prodotto.tipo == 'virtual'">
-                                    <button type="button" class="btn btn-default btn-xs wishes" placement="top"
-                                        ngbTooltip="Agregar al carrito">
-                                        <fa-icon [icon]="faShoppingCart"></fa-icon>
-                                    </button>
-                                </ng-container>
-                                <a routerLink="#" class="pixel--product">
-                                    <button type="button" class="btn btn-default btn-xs wishes" placement="top"
-                                        ngbTooltip="Ver producto">
-                                        <fa-icon [icon]="faEye"></fa-icon>
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                </li>
-            </ul>
-        </div>
+                </div>
+                <hr>
+            </li>
+        </ul>
     </div>
-</ng-container>
+</div>

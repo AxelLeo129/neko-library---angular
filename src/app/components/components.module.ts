@@ -7,15 +7,23 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { SkeletonComponent } from './skeleton/skeleton.component';
 import { ScrollUpComponent } from './scroll-up/scroll-up.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { BannerComponent } from './banner/banner.component';
+import { FeaturedProductsComponent } from './featured-products/featured-products.component';
+import { RouterModule } from '@angular/router';
+import { MatSelectModule } from '@angular/material/select';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [LoaderComponent, NotFoundComponent, SkeletonComponent, ScrollUpComponent],
-  exports: [LoaderComponent, NotFoundComponent, SkeletonComponent, ScrollUpComponent],
+  declarations: [LoaderComponent, NotFoundComponent, SkeletonComponent, ScrollUpComponent, BannerComponent, FeaturedProductsComponent],
+  exports: [LoaderComponent, NotFoundComponent, SkeletonComponent, ScrollUpComponent, BannerComponent, FeaturedProductsComponent],
   imports: [
     CommonModule,
     NgxSpinnerModule,
     NgxSkeletonLoaderModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    RouterModule,
+    MatSelectModule,
+    FormsModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
