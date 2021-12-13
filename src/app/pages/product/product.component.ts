@@ -69,7 +69,7 @@ export class ProductComponent implements OnInit, OnDestroy {
     const rotta_sottocategoria: string =
       this.route.snapshot.params.sottocategoria;
     if (rotta_categoria) {
-      this.percorso_attuale = rotta_categoria;
+      this.percorso_attuale = rotta_categoria.replace(/-/g, ' ');
       if (rotta_categoria == "articulos-gratis") this.getProducts('id', "12", "prezzo", "0"); 
       else if (rotta_categoria == "lo-mas-vendido") this.getProducts('vendite', "12");
       else if (rotta_categoria == "lo-mas-visto") this.getProducts('visualizzazioni', "12");
@@ -79,7 +79,7 @@ export class ProductComponent implements OnInit, OnDestroy {
         );
         if (categoria_risposta.mensaje != "No encontrada") {
           if (rotta_sottocategoria) {
-            this.percorso_attuale = rotta_sottocategoria;
+            this.percorso_attuale = rotta_sottocategoria.replace(/-/g, ' ');
             const sottocategoria_risposta = await this.general_service.get(
               "verificar-subcategoria/" + rotta_sottocategoria
             );
