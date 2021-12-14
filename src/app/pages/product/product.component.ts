@@ -30,6 +30,7 @@ export class ProductComponent implements OnInit, OnDestroy {
     ],
     ordinato_da: 'piu-recente'
   }
+  public link: Array<any> = [];
 
   constructor(
     private spinner: NgxSpinnerService,
@@ -99,6 +100,10 @@ export class ProductComponent implements OnInit, OnDestroy {
       url += `&search_field=${campo_ricerca}&search_value=${valore_ricerca}`;
     this.general_service
       .get(url).then((response) => {
+        console.log(response);
+        this.link = response.links;
+        this.link[0].label = "Anterior";
+        this.link[this.link.length - 1].label = "Siguiente";
         this.prodotto.dati = response.data;
         this.categoria_sottocategoria_trovata = true;
         this.finishLoader();
