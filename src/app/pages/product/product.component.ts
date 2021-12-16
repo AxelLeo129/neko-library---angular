@@ -31,6 +31,9 @@ export class ProductComponent implements OnInit, OnDestroy {
     ordinato_da: 'piu-recente'
   }
   public link: Array<any> = [];
+  private url: string;
+  private pagina_actuale: number;
+  private ultima_pagina: number;
 
   constructor(
     private spinner: NgxSpinnerService,
@@ -71,9 +74,18 @@ export class ProductComponent implements OnInit, OnDestroy {
       this.route.snapshot.params.sottocategoria;
     if (rotta_categoria) {
       this.percorso_attuale = rotta_categoria.replace(/-/g, ' ');
-      if (rotta_categoria == "articulos-gratis") this.getProducts('id', "12", "prezzo", "0"); 
-      else if (rotta_categoria == "lo-mas-vendido") this.getProducts('vendite', "12");
-      else if (rotta_categoria == "lo-mas-visto") this.getProducts('visualizzazioni', "12");
+      if (rotta_categoria == "articulos-gratis") {
+        this.url = `products?order_by=id&limit=12&search_field=prezzo&search_value=0`;
+        this.getProducts();
+      } 
+      else if (rotta_categoria == "lo-mas-vendido") {
+        this.url = `products?order_by=vendite&limit=12`;
+        this.getProducts();
+      }
+      else if (rotta_categoria == "lo-mas-visto") {
+        this.url = `products?order_by=visualizzazioni&limit=12`;
+        this.getProducts();
+      }
       else {
         const categoria_risposta = await this.general_service.get(
           "verificar-categoria/" + rotta_categoria
@@ -87,20 +99,25 @@ export class ProductComponent implements OnInit, OnDestroy {
             if (sottocategoria_risposta.mensaje == "No encontrada") {
               this.categoria_sottocategoria_trovata = false;
               this.finishLoader();
-            } else this.getProducts("id", "12", "categoria_id", categoria_risposta.id);
-          } else this.getProducts("id", "12", "categoria_id", categoria_risposta.id);
+            } else {
+              this.url = `products?order_by=id&limit=12&search_field=sottocategoria_id&search_value=${sottocategoria_risposta.id}`;
+              this.getProducts();
+            }
+          } else {
+            this.url = `products?order_by=id&limit=12&search_field=categoria_id&search_value=${categoria_risposta.id}`;
+            this.getProducts();
+          }
         } else this.finishLoader();
       }
     }
   }
 
-  async getProducts(ordinato_da: string, limite: string, campo_ricerca: string = null, valore_ricerca: string = null) {
-    let url = `products?order_by=${ordinato_da}&limit=${limite}`;
-    if(campo_ricerca)
-      url += `&search_field=${campo_ricerca}&search_value=${valore_ricerca}`;
+  async getProducts(pagina: string = "1") {
     this.general_service
-      .get(url).then((response) => {
+      .get(this.url + `&page=${pagina}`).then((response) => {
         console.log(response);
+        this.pagina_actuale = response.current_page;
+        this.ultima_pagina = response.last_page;
         this.link = response.links;
         this.link[0].label = "Anterior";
         this.link[this.link.length - 1].label = "Siguiente";
@@ -112,5 +129,12 @@ export class ProductComponent implements OnInit, OnDestroy {
         console.log(err);
         this.finishLoader();
       });
+  }
+
+  changePage(label: string) {
+    if((label == 'Anterior' && this.pagina_actuale == 1) || (label == 'Siguiente' && this.pagina_actuale == this.ultima_pagina) || label == '...') return
+    if(label == 'Anterior') label = (this.pagina_actuale - 1).toString();
+    if(label == 'Siguiente') label = (this.pagina_actuale + 1).toString();
+    this.getProducts(label);
   }
 }

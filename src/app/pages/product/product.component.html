@@ -22,7 +22,7 @@
                     <nav aria-label="Page navigation example">
                         <ul class="pagination justify-content-center">
                             <ng-container *ngFor="let li of link">
-                                <li class="page-item" [ngClass]="{'active': li.active, 'disabled': !li.url}"><a class="page-link">{{li.label}}</a></li>
+                                <li (click)="changePage(li.label)" class="page-item" [ngClass]="{'active': li.active, 'disabled': !li.url}"><a class="page-link">{{li.label}}</a></li>
                             </ng-container>
                         </ul>
                     </nav>
